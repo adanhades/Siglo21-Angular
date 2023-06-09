@@ -44,16 +44,29 @@ export class LoginComponent implements OnInit {
           // Swal.fire(` ${resp.data.fullName}`, 'Bienvenido Siglo a 21', 'success');
           console.log(resp);
           this.loader = false;
-          this.router.navigate(['/']);
+          this.redirect(this.auth.usuario.profile);
+          // this.router.navigate(['/']);
         }else{
           this.loader = false;
           let error: string = resp.message;
           // Swal.fire('Error',error, 'error');
         }
       });
-
-      // this.router.navigate(['/']);
     }
   }
 
+  redirect(perfil){
+    console.log('perfil: ', perfil);
+    switch (perfil) {
+      case 'Administrador':
+        // this.router.navigateByUrl('/admin');
+        this.router.navigate(['/admin']);
+        break;
+      case 'Cliente':
+        this.router.navigate(['/']);
+        break;
+      default:
+        break;
+    }
+  }
 }

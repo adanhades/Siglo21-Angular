@@ -40,6 +40,7 @@ export interface Usuario {
   rut?:        string;
   dvrut?:      string;
   rol?:       string;
+  profile?:    string;
 }
 
 export interface Perfil {
