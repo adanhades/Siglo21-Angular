@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/interfaces/auth.interfaces';
-import { AuthService } from 'src/app/services/auth.service';
+import { AutenticarService } from 'src/app/services/autenticar.service';
 
 @Component({
   selector: 'app-user-menu',
@@ -12,7 +12,7 @@ export class UserMenuComponent implements OnInit {
   usuario: Usuario = {};
   nombreUsuario: string = '';
   constructor(
-    private auth: AuthService
+    private autenticar: AutenticarService
   ) { }
 
   ngOnInit(): void {
@@ -20,10 +20,10 @@ export class UserMenuComponent implements OnInit {
   }
 
   getUsuario(){
-    if(!this.auth.usuario){
+    if(!this.autenticar.usuario){
       return;
     }
-    this.usuario = this.auth.usuario;
+    this.usuario = this.autenticar.usuario;
     console.log('this.usuario: ', this.usuario);
     this.getNombre();
   }

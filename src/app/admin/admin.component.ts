@@ -3,7 +3,7 @@ import { AppSettings, Settings } from '../app.settings';
 import { Router, NavigationEnd } from '@angular/router'; 
 import { MenuService } from './components/menu/menu.service';
 import { Menu } from './components/menu/menu.model';
-import { AuthService } from '../services/auth.service';
+import { AutenticarService } from '../services/autenticar.service';
 import { Usuario } from '../interfaces/auth.interfaces';
 
 @Component({
@@ -23,7 +23,7 @@ export class AdminComponent implements OnInit {
   constructor(public appSettings:AppSettings, 
               public router:Router,
               private menuService: MenuService,
-              private auth: AuthService){        
+              private autenticar: AutenticarService){        
     this.settings = this.appSettings.settings;
   }
 
@@ -37,10 +37,10 @@ export class AdminComponent implements OnInit {
   }
 
   getUsuario(){
-    if(!this.auth.usuario){
+    if(!this.autenticar.usuario){
       return;
     }
-    this.usuario = this.auth.usuario;
+    this.usuario = this.autenticar.usuario;
     console.log('this.usuario: ', this.usuario);
     this.getNombre();
   }

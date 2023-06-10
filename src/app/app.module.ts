@@ -37,6 +37,7 @@ import { HorizontalMenuComponent } from './theme/components/menu/horizontal-menu
 import { VerticalMenuComponent } from './theme/components/menu/vertical-menu/vertical-menu.component';
 import { FooterComponent } from './theme/components/footer/footer.component'; 
 import { LockScreenComponent } from './pages/lock-screen/lock-screen.component';
+import { AuthModule } from '@auth0/auth0-angular';
 
 
 @NgModule({
@@ -67,7 +68,14 @@ import { LockScreenComponent } from './pages/lock-screen/lock-screen.component';
       }
     }),
     AppRoutingModule,
-    SharedModule    
+    SharedModule,
+    AuthModule.forRoot({
+      domain: 'dev-ly6v0hrqinbr5sgu.us.auth0.com',
+      clientId: 'EffYKMKC8B7oNoFv6MlwEGvTa9EQ4dxA',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }),
   ],
   providers: [ 
     AppSettings,
