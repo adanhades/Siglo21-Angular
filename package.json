@@ -1,6 +1,6 @@
 {
-  "name": "mox",
-  "version": "1.4.2",
+  "name": "siglo21",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,10 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev:ssr": "ng run mox:serve-ssr",
+    "dev:ssr": "ng run siglo21:serve-ssr",
     "serve:ssr": "node dist/server/main.js",
-    "build:ssr": "ng build --configuration production && ng run mox:server:production",
-    "prerender": "ng run mox:prerender"
+    "build:ssr": "ng build --configuration production && ng run siglo21:server:production",
+    "prerender": "ng run siglo21:prerender"
   },
   "private": true,
   "dependencies": {
