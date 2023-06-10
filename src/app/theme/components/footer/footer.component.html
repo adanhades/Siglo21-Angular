@@ -1,7 +1,7 @@
 <footer>    
     <div class="px-3">
         <div class="theme-container"> 
-            <div fxLayout="column" fxLayout.gt-sm="row wrap" fxLayoutAlign="center center" class="content border-lighter py-5">
+            <!-- <div fxLayout="column" fxLayout.gt-sm="row wrap" fxLayoutAlign="center center" class="content border-lighter py-5">
                 <div fxFlex="100" fxFlex.gt-sm="40" fxLayout="column" fxLayoutAlign="center center"> 
                     <h1 class="secondary-font">Subscribe our Newsletter</h1>
                     <p class="desc">Stay up to date with our latest news and properties</p>
@@ -12,32 +12,32 @@
                     </mat-form-field>
                     <button mat-flat-button type="submit" class="subscribe-btn" color="primary">Subscribe</button>
                 </form>
-            </div> 
+            </div>  -->
             <div class="py-5 content border-lighter"> 
                 <div fxLayout="row wrap" fxLayoutAlign="space-between"> 
                     <div fxFlex="100" fxFlex.gt-sm="30" fxFlex.sm="45"> 
-                        <a class="logo" routerLink="/"><app-logo></app-logo></a>
-                        <p class="mt-4 mb-3 desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum perspiciatis cupiditate numquam odio explicabo accusantium deserunt incidunt.</p>
+                        <a class="logo" routerLink="/">SIGLO 21</a>
+                        <p class="mt-4 mb-3 desc">Restaurant con gran tradición en preparaciones que lo harán como comer en casa.</p>
                         <p fxLayout="row" fxLayoutAlign="start center" class="mt-2">
-                            <mat-icon color="primary">location_on</mat-icon>
-                            <span class="mx-2">2903 Avenue Z, Brooklyn, NY</span>
+                            <mat-icon color="primary">Ubicación</mat-icon>
+                            <span class="mx-2">Av Libertad 2903, Viña del Mar, Valparaíso, Chile</span>
                         </p>
                         <p fxLayout="row" fxLayoutAlign="start center" class="mt-1">
-                            <mat-icon color="primary">call</mat-icon>
-                            <span class="mx-2">(+100) 123 456 7890</span>
+                            <mat-icon color="primary">Teléfono</mat-icon>
+                            <span class="mx-2">(+56) 32 456 7890</span>
                         </p>
                         <p fxLayout="row" fxLayoutAlign="start center" class="mt-1">
-                            <mat-icon color="primary">mail_outline</mat-icon>
-                            <span class="mx-2">info@mox.com</span>
+                            <mat-icon color="primary">E-Mail</mat-icon>
+                            <span class="mx-2">info@siglo21.com</span>
                         </p>
                         <p fxLayout="row" fxLayoutAlign="start center" class="mt-1">
-                            <mat-icon color="primary">schedule</mat-icon>
-                            <span class="mx-2">Mon - Sun / 9:00AM - 8:00PM</span>
+                            <mat-icon color="primary">Horario</mat-icon>
+                            <span class="mx-2">Lun - Dom / 9:00AM - 8:00PM</span>
                         </p>
                         <app-social-icons [iconSize]="'lg'" fxLayout="row" fxLayoutAlign="start center" class="desc"></app-social-icons>                    
                     </div>
 
-                    <div fxFlex="100" fxFlex.gt-sm="30" fxFlex.sm="45" ngClass.xs="pt-5"> 
+                    <!-- <div fxFlex="100" fxFlex.gt-sm="30" fxFlex.sm="45" ngClass.xs="pt-5"> 
                         <h1 class="secondary-font">Feedback</h1>
                         <p class="desc">We want your feedback about everything</p>
                         <form [formGroup]="feedbackForm" (ngSubmit)="onFeedbackFormSubmit(feedbackForm.value)" class="custom-form pt-2">                            
@@ -56,21 +56,21 @@
                                 <button mat-flat-button color="primary" class="uppercase" type="submit">Submit</button> 
                             </div> 
                         </form> 
-                    </div>
+                    </div> -->
  
-                    <div fxFlex="100" fxFlex.gt-sm="30" ngClass.lt-md="pt-5"> 
+                    <!-- <div fxFlex="100" fxFlex.gt-sm="30" ngClass.lt-md="pt-5"> 
                         <h1 class="secondary-font mb-3">Our location</h1>  
                         <google-map [center]="center" [zoom]="zoom" [options]="mapOptions" height="308px" width="100%">
                             <map-marker *ngFor="let markerPosition of markerPositions"
                                         [position]="markerPosition"
                                         [options]="markerOptions"></map-marker>
                         </google-map>
-                    </div>
+                    </div> -->
                 </div>  
             </div> 
             <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" class="copyright py-2">
-                <p ngClass.xs="mt-1">Copyright © 2023 All Rights Reserved</p>  
-                <p>Designed & Developed by <a mat-button href="http://themeseason.com/" color="warn" target="_blank">ThemeSeason</a></p>
+                <p ngClass.xs="mt-1">Copyright © 2023 Todos los derechos reservados</p>  
+                <p>Poyecto de Portafolio <a mat-button href="https://siglo21.hadesdev.com/" color="warn" target="_blank">Siglo 21</a></p>
             </div> 
         </div>
     </div>      

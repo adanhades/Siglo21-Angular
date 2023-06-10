@@ -3,6 +3,8 @@ import { AppSettings, Settings } from '../app.settings';
 import { Router, NavigationEnd } from '@angular/router'; 
 import { MenuService } from './components/menu/menu.service';
 import { Menu } from './components/menu/menu.model';
+import { AuthService } from '../services/auth.service';
+import { Usuario } from '../interfaces/auth.interfaces';
 
 @Component({
   selector: 'app-admin',
@@ -15,9 +17,13 @@ export class AdminComponent implements OnInit {
   public settings:Settings;
   public menuItems:Array<Menu> = [];
   public toggleSearchBar:boolean = false;
+
+  usuario: Usuario = {};
+  nombreUsuario: string = '';
   constructor(public appSettings:AppSettings, 
               public router:Router,
-              private menuService: MenuService){        
+              private menuService: MenuService,
+              private auth: AuthService){        
     this.settings = this.appSettings.settings;
   }
 
@@ -26,7 +32,23 @@ export class AdminComponent implements OnInit {
       this.settings.adminSidenavIsOpened = false;
       this.settings.adminSidenavIsPinned = false;
     };  
-    this.menuItems = this.menuService.getMenuItems();    
+    this.menuItems = this.menuService.getMenuItems();  
+    this.getUsuario();  
+  }
+
+  getUsuario(){
+    if(!this.auth.usuario){
+      return;
+    }
+    this.usuario = this.auth.usuario;
+    console.log('this.usuario: ', this.usuario);
+    this.getNombre();
+  }
+
+  getNombre(){
+    const nombre = this.usuario.nombres.split(' ')[0];
+    const apellido = this.usuario.apellidos.split(' ')[0];
+    this.nombreUsuario =  `${nombre} ${apellido}`;
   }
 
   ngAfterViewInit(){  

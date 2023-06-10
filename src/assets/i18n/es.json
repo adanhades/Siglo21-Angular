@@ -1,0 +1,76 @@
+{   
+  "LOGIN": "Iniciar sesión", 
+  "LOGOUT": "Cerrrar sesión", 
+  "REGISTER": "Registrarse",
+  "ACCOUNT": "Cuenta",
+  "RESERVATION": "Reserva",
+  "MENU": "Menú",
+  "NAV": {  
+    "HOME": "Inicio",  
+    "PAGES": "Páginas", 
+    "CHEFS": "Chefs",
+    "CHEF": "Chef", 
+    "SHOP": "Tienda",
+    "SINGLE_MENU": "Menú individual",
+    "CART": "Carrito",
+    "CHECKOUT": "Checkout",
+    "FAQS": "Faqs",
+    "PRICING": "Precios",
+    "TERMS_CONDITIONS": "Términos y condiciones",
+    "LANDING": "Landing", 
+    "404_PAGE": "404 Página",
+    "OTHERS": "Otros",
+    "EXTERNAL_LINK": "Link Externo",
+    "MENU_ITEM": "Item menú",
+    "CONTACT": "Contacto",
+    "ABOUT_US": "Sobre nosotros",
+    "ADMIN": "Admin"
+  },
+  "ADMIN_NAV": {  
+    "DASHBOARD": "Dashboard",  
+    "MENU_ITEMS": "Items menú", 
+    "CATEGORIES": "Categorías",
+    "MENU_ITEMS_LIST": "Lista items menú", 
+    "MENU_ITEM_DETAIL": "Detalle item menú",
+    "ADD_MENU_ITEM": "Agregar item menú",
+    "SALES": "Ventas",
+    "ORDERS": "Órdenes",
+    "TRANSACTIONS": "Transacciones",
+    "USERS": "Usuarios",
+    "RESERVATIONS": "Reservas",
+    "CUSTOMERS": "Clientes", 
+    "COUPONS": "Cupones",
+    "WITHDRAWAL": "Retiro",
+    "ANALYTICS": "Análisis",
+    "REFUND": "Reembolso",
+    "FOLLOWERS": "Seguidores",
+    "SUPPORT": "Soporte",
+    "REVIEWS": "Reseñas", 
+    "EXTERNAL_LINK": "Link Externo" 
+  },
+  "BTN": {
+    "ADD": "Agregar",
+    "SAVE": "Guardar",
+    "SUBMIT": "Enviar",
+    "CANCEL": "Cancelar",
+    "UPLOAD": "Subir",
+    "REMOVE": "Remover",
+    "YES": "Si",
+    "NO": "No",
+    "OK": "OK"
+  },
+  "MESSAGE": {
+    "SURE_DELETE": "¿Estás seguro de que quieres eliminar este elemento?",
+    "FILE_SIZE": "El archivo no puede exceder los {{param}} kb."
+  },
+  "FIELD": { 
+    "NAME": "Nombre" 
+  }, 
+  "PAGINATION":{
+    "ITEMS_PER_PAGE": "Items por página:",
+    "NEXT_PAGE": "Siguiente página",
+    "PREV_PAGE": "Página anterior",
+    "FIRST_PAGE": "Primera página",
+    "LAST_PAGE": "Última página"
+  }
+}
