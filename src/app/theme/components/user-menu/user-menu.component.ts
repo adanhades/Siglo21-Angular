@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/app.service';
-import { Usuario } from 'src/app/interfaces/auth.interfaces';
+import { GoogleUser, Usuario } from 'src/app/interfaces/auth.interfaces';
 // import { AuthService } from 'src/app/services/auth.service';
 import { AuthService } from '@auth0/auth0-angular';
+import { AutenticarService } from '../../../services/autenticar.service';
 
 @Component({
   selector: 'app-user-menu',
@@ -12,32 +13,29 @@ import { AuthService } from '@auth0/auth0-angular';
 export class UserMenuComponent implements OnInit {
 
 
-  usuario: Usuario = {};
+  usuario: GoogleUser = {};
   nombreUsuario: string = '';
   constructor(
     public appService:AppService,
-    // private auth: AuthService,
-    private auth0: AuthService
+    private autenS: AutenticarService,
+    public auth0: AuthService
   ) { }
 
   ngOnInit(): void {
-    // this.getUsuario();
+    if(this.auth0.isAuthenticated$){
+      console.log("Autenticado");
+      this.getUsuario();
+    }
   }
 
-  // getUsuario(){
-  //   if(!this.auth.usuario){
-  //     return;
-  //   }
-  //   this.usuario = this.auth.usuario;
-  //   console.log('this.usuario: ', this.usuario);
-  //   this.getNombre();
-  // }
-
-  getNombre(){
-    const nombre = this.usuario.nombres.split(' ')[0];
-    const apellido = this.usuario.apellidos.split(' ')[0];
-    this.nombreUsuario =  `${nombre} ${apellido}`;
+  getUsuario(){
+    this.auth0.user$.subscribe((data)=>{
+      console.log('data: ', data);
+      this.usuario = data;
+    });
   }
+
+
 
   logout(){
     this.auth0.logout({ logoutParams: { returnTo: document.location.origin } })

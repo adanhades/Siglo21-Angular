@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { ApiResponse, Cliente, LoginResponse, Usuario } from "../interfaces/auth.interfaces";
+import { ApiResponse, Cliente, GoogleUser, LoginResponse, Usuario } from "../interfaces/auth.interfaces";
 import { Observable, catchError, map, of, tap } from "rxjs";
 import { environment } from "src/environments/environment";
+import { AuthService } from "@auth0/auth0-angular";
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,13 @@ import { environment } from "src/environments/environment";
 export class AutenticarService {
     private baseUrl: string = environment.baseUrl;
     private _usuario: Usuario;
+    private _usuarioGoogle: GoogleUser
     private options = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
     };
     constructor(
         private http: HttpClient,
+        private auth: AuthService,
       ) { }
     
       login(userLogin): Observable<LoginResponse> {
@@ -42,6 +45,18 @@ export class AutenticarService {
     
       get usuario() {
         return { ...this._usuario };
+      }
+
+      get usuarioGoogle() {
+        return { ...this._usuarioGoogle };
+      }
+
+      getUsuarioGoogle(){
+        this.auth.user$.subscribe((data)=>{
+          console.log('data: ', data);
+          this._usuarioGoogle = data;
+          return this._usuarioGoogle;
+        });
       }
     
       registrarCliente(cliente: Cliente){

@@ -4,13 +4,16 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { PagesComponent } from './pages/pages.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LockScreenComponent } from './pages/lock-screen/lock-screen.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { 
     path: '', 
     component: PagesComponent, children: [
         //{ path: '', redirectTo: '/landing', pathMatch: 'full' },
-        { path: '', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
+        { path: '', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
+        ,canActivateChild: [AuthGuard] 
+        },
         { path: 'about', loadChildren: () => import('./pages/about/about.module').then(m => m.AboutModule) },
         { path: 'contact', loadChildren: () => import('./pages/contact/contact.module').then(m => m.ContactModule) },
         { path: 'menu', loadChildren: () => import('./pages/menu/menu.module').then(m => m.MenuModule) },
