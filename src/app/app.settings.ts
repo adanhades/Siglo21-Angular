@@ -22,8 +22,8 @@ export class Settings {
 @Injectable()
 export class AppSettings {
     public settings = new Settings(
-        'Mox',    // theme name
-        'red',       // red, green, blue, pink, purple, grey, orange-dark, custom
+        'Siglo21|Admin',    // theme name
+        'purple',       // red, green, blue, pink, purple, grey, orange-dark, custom
         1,           // 1   
         true,        // true = sticky, false = not sticky
         'image',     // default, image, carousel

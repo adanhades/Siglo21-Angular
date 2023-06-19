@@ -19,6 +19,24 @@ export class AutenticarService {
         private http: HttpClient,
         private auth: AuthService,
       ) { }
+
+      getUsuarios() {
+
+        console.log('this.usuario.token: ', this.usuario.token);
+        const url = `${this.baseUrl}/UsuariosController/listarUsuarios`;
+        const body = new HttpParams()
+        .set('token', this.usuario.token);
+        console.log('body: ', body);
+        return this.http.post(url,body, this.options)
+        .pipe(
+          tap((resp: any) => {
+            if (resp.ok === true) {
+              console.log('resp: ', resp);
+            }
+          }),
+          map((resp: any) => resp),
+          catchError((err) => of(err)));
+      }
     
       login(userLogin): Observable<LoginResponse> {
         console.log('userLogin: ', userLogin);

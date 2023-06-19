@@ -6,6 +6,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { AppSettings, Settings } from 'src/app/app.settings';
 import { LoginResponse } from 'src/app/interfaces/auth.interfaces';
 import { AutenticarService } from 'src/app/services/autenticar.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
     private sanitizer:DomSanitizer, 
     public appSettings:AppSettings,
     private autenticar: AutenticarService,
-    public auth: AuthService
+    public auth: AuthService,
+    private usuariosService: UsuariosService
     ) { 
     this.settings = this.appSettings.settings; 
   }

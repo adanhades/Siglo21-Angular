@@ -2,11 +2,12 @@ import { Component, Input, OnInit, SimpleChange } from '@angular/core';
 import { MenuItem } from 'src/app/app.models';
 import { AppService } from 'src/app/app.service';
 import { CartOverviewComponent } from '../cart-overview/cart-overview.component';
-
+import { LOCALE_ID } from '@angular/core';
 @Component({
   selector: 'app-menu-item',
   templateUrl: './menu-item.component.html',
-  styleUrls: ['./menu-item.component.scss']
+  styleUrls: ['./menu-item.component.scss'],
+  providers: [{provide: LOCALE_ID, useValue: "es-CL" }]
 })
 export class MenuItemComponent implements OnInit {
   @Input() menuItem!: MenuItem;

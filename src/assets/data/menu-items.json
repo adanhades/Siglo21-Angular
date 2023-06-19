@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Snack Set", 
         "description": "Butter, cream, honey, salty cottage cheese, white cheese.",
-        "price": 8.20,
+        "price": 8500,
         "image": {
             "small": "assets/images/foods/breakfast/1/small.jpg",
             "medium": "assets/images/foods/breakfast/1/medium.jpg",
@@ -22,7 +22,7 @@
         "id": 2,
         "name": "Salmon And Avocado Bruschetta", 
         "description": "Black bread, smoked salmon, Philadelphia cheese, avocado, tomatoes, eggs.",
-        "price": 12.50,
+        "price": 11500,
         "image": {
             "small": "assets/images/foods/breakfast/2/small.jpg",
             "medium": "assets/images/foods/breakfast/2/medium.jpg",
@@ -41,7 +41,7 @@
         "id": 3,
         "name": "Croque Madame", 
         "description": "Toasted bread, veal salami, eggs, butter, Gouda cheese, arugula, carrot, cucumber, radish.",
-        "price": 9.50,
+        "price": 5500,
         "image": {
             "small": "assets/images/foods/breakfast/3/small.jpg",
             "medium": "assets/images/foods/breakfast/3/medium.jpg",
@@ -60,7 +60,7 @@
         "id": 4,
         "name": "Cheese Pancakes", 
         "description": "Puff pastry, cheese filling, arugula, carrot, cucumber, radish.",
-        "price": 7.30,
+        "price": 3500,
         "image": {
             "small": "assets/images/foods/breakfast/4/small.jpg",
             "medium": "assets/images/foods/breakfast/4/medium.jpg",
@@ -79,7 +79,7 @@
         "id": 5,
         "name": "Cheese Sandwich", 
         "description": "Toasted bread, Cheddar cheese, Gouda cheese, butter, arugula, carrot, cucumber, radish.",
-        "price": 7.30,
+        "price": 3500,
         "image": {
             "small": "assets/images/foods/breakfast/5/small.jpg",
             "medium": "assets/images/foods/breakfast/5/medium.jpg",
@@ -98,7 +98,7 @@
         "id": 6,
         "name": "Black Toasted Sandwich", 
         "description": "Black bread, ham, eggs, Gouda cheese, arugula, carrot, cucumber, radish.",
-        "price": 8.30,
+        "price": 4000,
         "image": {
             "small": "assets/images/foods/breakfast/6/small.jpg",
             "medium": "assets/images/foods/breakfast/6/medium.jpg",
@@ -117,7 +117,7 @@
         "id": 7,
         "name": "Mixed Omelet", 
         "description": "Eggs, chicken fillet, Gouda cheese, arugula and tomatoes salad.",
-        "price": 9.50,
+        "price": 5000,
         "image": {
             "small": "assets/images/foods/breakfast/7/small.jpg",
             "medium": "assets/images/foods/breakfast/7/medium.jpg",
@@ -136,7 +136,7 @@
         "id": 8,
         "name": "Cheese Plate", 
         "description": "Sheep's milk cheese, motal, cottage cheese, white cheese.",
-        "price": 3.50,
+        "price": 3000,
         "image": {
             "small": "assets/images/foods/appetizers/1/small.jpg",
             "medium": "assets/images/foods/appetizers/1/medium.jpg",
@@ -155,7 +155,7 @@
         "id": 9,
         "name": "Cold Cuts", 
         "description": "Beef tounge, chicken roll, veal basturma.",
-        "price": 7.90,
+        "price": 4500,
         "image": {
             "small": "assets/images/foods/appetizers/2/small.jpg",
             "medium": "assets/images/foods/appetizers/2/medium.jpg",
@@ -174,7 +174,7 @@
         "id": 10,
         "name": "Oriental Style Eggplants", 
         "description": "Eggplants, walnuts, curry, sour cream, garlic.",
-        "price": 6.80,
+        "price": 5000,
         "image": {
             "small": "assets/images/foods/appetizers/3/small.jpg",
             "medium": "assets/images/foods/appetizers/3/medium.jpg",
@@ -193,7 +193,7 @@
         "id": 11,
         "name": "Special Eggplants Snack", 
         "description": "Marinated eggplants, special sauce, greens.",
-        "price": 5.50,
+        "price": 4500,
         "image": {
             "small": "assets/images/foods/appetizers/4/small.jpg",
             "medium": "assets/images/foods/appetizers/4/medium.jpg",
@@ -212,7 +212,7 @@
         "id": 12,
         "name": "Tomatoes Marinated in Vinegar", 
         "description": "Tomatoes, grape vinegar, parsley, pumpkin seeds, olive oil, garlic.",
-        "price": 3.90,
+        "price": 2800,
         "image": {
             "small": "assets/images/foods/appetizers/5/small.jpg",
             "medium": "assets/images/foods/appetizers/5/medium.jpg",
@@ -231,7 +231,7 @@
         "id": 13,
         "name": "Potato Snack", 
         "description": "Potato, white cheese, motal cheese, sun-dried tomatoes, gouda cheese, olive oil, garlic.",
-        "price": 4.80,
+        "price": 4000,
         "image": {
             "small": "assets/images/foods/appetizers/6/small.jpg",
             "medium": "assets/images/foods/appetizers/6/medium.jpg",
@@ -250,7 +250,7 @@
         "id": 14,
         "name": "Barbecue Salad", 
         "description": "Eggplants, tomatoes, bell pepper, red pepper, corn oil, garlic, fresh greens.",
-        "price": 7.50,
+        "price": 6500,
         "image": {
             "small": "assets/images/foods/salads/1/small.jpg",
             "medium": "assets/images/foods/salads/1/medium.jpg",
@@ -269,7 +269,7 @@
         "id": 15,
         "name": "Russian Salad", 
         "description": "Beef, potato, carrot, eggs, fresh cucumbers, pickled cucumbers, mayonnaise, green peas, fresh greens.",
-        "price": 9.50,
+        "price": 9000,
         "image": {
             "small": "assets/images/foods/salads/2/small.jpg",
             "medium": "assets/images/foods/salads/2/medium.jpg",
@@ -288,7 +288,7 @@
         "id": 16,
         "name": "Crispy Eggplant Salad", 
         "description": "Eggplants, tomatoes, oyster sauce, white sesame seeds.",
-        "price": 8.20,
+        "price": 7500,
         "image": {
             "small": "assets/images/foods/salads/3/small.jpg",
             "medium": "assets/images/foods/salads/3/medium.jpg",
@@ -307,7 +307,7 @@
         "id": 17,
         "name": "Chick Soup With Rice", 
         "description": "Chick, round rice, onion, carrot, cherry plums, turmeric.",
-        "price": 8.20,
+        "price": 7500,
         "image": {
             "small": "assets/images/foods/soups/1/small.jpg",
             "medium": "assets/images/foods/soups/1/medium.jpg",
@@ -326,7 +326,7 @@
         "id": 18,
         "name": "Noodle Soup With Meatballs", 
         "description": "Homemade noodles, veal, meat broth, onion, carrot, turmeric, mung beans.",
-        "price": 11.50,
+        "price": 10500,
         "image": {
             "small": "assets/images/foods/soups/2/small.jpg",
             "medium": "assets/images/foods/soups/2/medium.jpg",
@@ -345,7 +345,7 @@
         "id": 19,
         "name": "Onion Soup", 
         "description": "Onion, wheat flour, potato, eggs, cilantro, butter.",
-        "price": 7.50,
+        "price": 6000,
         "image": {
             "small": "assets/images/foods/soups/3/small.jpg",
             "medium": "assets/images/foods/soups/3/medium.jpg",
@@ -364,7 +364,7 @@
         "id": 20,
         "name": "Beef Languet With Potato", 
         "description": "Beef tenderloin, butter, black pepper, tomatoes, potato.",
-        "price": 18.50,
+        "price": 15000,
         "image": {
             "small": "assets/images/foods/meat-courses/1/small.jpg",
             "medium": "assets/images/foods/meat-courses/1/medium.jpg",
@@ -383,7 +383,7 @@
         "id": 21,
         "name": "\"Three Sisters\" Dolma", 
         "description": "Veal, lamb, eggplants, tomatoes, bell pepper.",
-        "price": 17.50,
+        "price": 14000,
         "image": {
             "small": "assets/images/foods/meat-courses/2/small.jpg",
             "medium": "assets/images/foods/meat-courses/2/medium.jpg",
@@ -402,7 +402,7 @@
         "id": 22,
         "name": "Fried With Meat", 
         "description": "Dough, veal, fat tail, fresh greens.",
-        "price": 15.50,
+        "price": 13000,
         "image": {
             "small": "assets/images/foods/meat-courses/3/small.jpg",
             "medium": "assets/images/foods/meat-courses/3/medium.jpg",
@@ -421,7 +421,7 @@
         "id": 23,
         "name": "Veal With Mushrooms In Hot Sauce", 
         "description": "Veal, mushrooms, butter, sweet chili sauce, onion, cilantro.",
-        "price": 16.50,
+        "price": 14000,
         "image": {
             "small": "assets/images/foods/meat-courses/4/small.jpg",
             "medium": "assets/images/foods/meat-courses/4/medium.jpg",
@@ -440,7 +440,7 @@
         "id": 24,
         "name": "Chick Tabaka", 
         "description": "Chick for two persons",
-        "price": 13.50,
+        "price": 11500,
         "image": {
             "small": "assets/images/foods/chicken-courses/1/small.jpg",
             "medium": "assets/images/foods/chicken-courses/1/medium.jpg",
@@ -459,7 +459,7 @@
         "id": 25,
         "name": "Chicken Languet With Potato", 
         "description": "Chicken fillet, potato, tomatoes",
-        "price": 12.50,
+        "price": 10000,
         "image": {
             "small": "assets/images/foods/chicken-courses/2/small.jpg",
             "medium": "assets/images/foods/chicken-courses/2/medium.jpg",
@@ -478,7 +478,7 @@
         "id": 26,
         "name": "Chick Saj", 
         "description": "Chick, onion, tomatoes, bell pepper, eggplants, potato, lavash.",
-        "price": 18.50,
+        "price": 15000,
         "image": {
             "small": "assets/images/foods/chicken-courses/3/small.jpg",
             "medium": "assets/images/foods/chicken-courses/3/medium.jpg",
@@ -497,7 +497,7 @@
         "id": 27,
         "name": "Seasonal Fruits", 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "price": 9.50,
+        "price": 8000,
         "image": {
             "small": "assets/images/foods/desserts/1/small.jpg",
             "medium": "assets/images/foods/desserts/1/medium.jpg",
@@ -516,7 +516,7 @@
         "id": 28,
         "name": "Jam", 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "price": 12.30,
+        "price": 10500,
         "image": {
             "small": "assets/images/foods/desserts/2/small.jpg",
             "medium": "assets/images/foods/desserts/2/medium.jpg",
@@ -535,7 +535,7 @@
         "id": 29,
         "name": "AssortmentOf Dry Fruit And Nuts", 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "price": 8.50,
+        "price": 5500,
         "image": {
             "small": "assets/images/foods/desserts/3/small.jpg",
             "medium": "assets/images/foods/desserts/3/medium.jpg",
@@ -554,7 +554,7 @@
         "id": 30,
         "name": "Ice Cream", 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "price": 14.50,
+        "price": 12000,
         "image": {
             "small": "assets/images/foods/desserts/4/small.jpg",
             "medium": "assets/images/foods/desserts/4/medium.jpg",
@@ -573,7 +573,7 @@
         "id": 31,
         "name": "Red Wine", 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "price": 25.50,
+        "price": 22000,
         "image": {
             "small": "assets/images/foods/drinks/1/small.jpg",
             "medium": "assets/images/foods/drinks/1/medium.jpg",
@@ -592,7 +592,7 @@
         "id": 32,
         "name": "Light Beer", 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "price": 5.50,
+        "price": 4500,
         "image": {
             "small": "assets/images/foods/drinks/2/small.jpg",
             "medium": "assets/images/foods/drinks/2/medium.jpg",
@@ -611,7 +611,7 @@
         "id": 32,
         "name": "Cap of Tea", 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "price": 2.30,
+        "price": 1100,
         "image": {
             "small": "assets/images/foods/drinks/3/small.jpg",
             "medium": "assets/images/foods/drinks/3/medium.jpg",
@@ -630,7 +630,7 @@
         "id": 33,
         "name": "Cap of Coffee", 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "price": 3.30,
+        "price": 1500,
         "image": {
             "small": "assets/images/foods/drinks/4/small.jpg",
             "medium": "assets/images/foods/drinks/4/medium.jpg",
@@ -649,7 +649,7 @@
         "id": 34,
         "name": "Coctails", 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "price": 15.00,
+        "price": 12000,
         "image": {
             "small": "assets/images/foods/drinks/5/small.jpg",
             "medium": "assets/images/foods/drinks/5/medium.jpg",

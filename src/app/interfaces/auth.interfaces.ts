@@ -1,4 +1,5 @@
 
+
 export interface LoginResponse {
   ok:      boolean;
   status:  string;
@@ -9,7 +10,7 @@ export interface ApiResponse {
   ok:      boolean;
   status:  string;
   message: string;
-  data?:    Usuario;
+  data?:    any[];
 }
 export interface ApiResponseNewClient {
   ok:      boolean;
@@ -41,6 +42,7 @@ export interface Usuario {
   dvrut?:      string;
   rol?:       string;
   profile?:    string;
+  activo?:     string;
 }
 
 export interface Perfil {
@@ -58,5 +60,21 @@ export interface GoogleUser{
   email?:          string;
   email_verified?: boolean,
   sub?:            string;
+}
+
+export interface Usuario {
+  id?:         number;
+  nombres?:    string;
+  apellidos?:  string;
+  fullName?:   string;
+  username?:   string;
+  telefono?:   string;
+  email?:      string;
+  perfil?:     Perfil;
+  token?:      string;
+  password?:   string;
+  rut?:        string;
+  dvrut?:      string;
+  rol?:        string;
 }
 

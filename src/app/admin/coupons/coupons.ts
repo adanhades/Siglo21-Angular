@@ -1,7 +1,7 @@
 export const coupons = [
     { 
         id: 1, 
-        title: '10% Off',
+        title: '10% de Descuento',
         code: '2491', 
         desc: 'lorem ipsum', 
         discountType: 1,
@@ -26,7 +26,7 @@ export const coupons = [
     },
     { 
         id: 2, 
-        title: '20% Off',
+        title: '20% de Descuento',
         code: '3274', 
         desc: 'lorem ipsum', 
         discountType: 2,
@@ -51,7 +51,7 @@ export const coupons = [
     }, 
     { 
         id: 3, 
-        title: '10% Off',
+        title: '10% de Descuento',
         code: '5247', 
         desc: 'lorem ipsum', 
         discountType: 3,
@@ -76,7 +76,7 @@ export const coupons = [
     }, 
     { 
         id: 4, 
-        title: '10% Off',
+        title: '10% de Descuento',
         code: '9585', 
         desc: 'lorem ipsum', 
         discountType: 2,
@@ -101,7 +101,7 @@ export const coupons = [
     },
     { 
         id: 5, 
-        title: '5% Off',
+        title: '5% de Descuento',
         code: '3258', 
         desc: 'lorem ipsum', 
         discountType: 2,
@@ -126,7 +126,7 @@ export const coupons = [
     },
     { 
         id: 6, 
-        title: '25% Off',
+        title: '25% de Descuento',
         code: '7425', 
         desc: 'lorem ipsum', 
         discountType: 3,
@@ -151,7 +151,7 @@ export const coupons = [
     },
     { 
         id: 7, 
-        title: '15% Off',
+        title: '15% de Descuento',
         code: '5688', 
         desc: 'lorem ipsum', 
         discountType: 1,
@@ -176,7 +176,7 @@ export const coupons = [
     },
     { 
         id: 8, 
-        title: '10% Off',
+        title: '10% de Descuento',
         code: '5962', 
         desc: 'lorem ipsum', 
         discountType: 1,

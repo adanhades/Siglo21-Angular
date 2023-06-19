@@ -8,6 +8,23 @@ export class User {
   social!: UserSocial;
   settings!: UserSettings;
 }
+export class Usuario {
+activo:"";
+apellidos:"";
+dvrut:"";
+email:"";
+id:"";
+id_perfil:"";
+logintoken:"";
+nombres:"";
+password:"";
+perfil_usuario:"";
+run:"";
+rut:"";
+telefono:"";
+username:"";
+usuario_activo_texto:"";
+}
 
 export class UserProfile {  
   name: string = '';

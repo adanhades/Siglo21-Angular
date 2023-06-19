@@ -95,7 +95,7 @@ export class AppService {
         this.openCart(component);        
       }
       else{ 
-        this.snackBar.open('The menu item "' + menuItem.name + '" has been added to cart.', '×', {
+        this.snackBar.open('El menú "' + menuItem.name + '" ha sido agregado al carro.', '×', {
           verticalPosition: 'top',
           duration: 3000,
           direction: (this.appSettings.settings.rtl) ? 'rtl':'ltr',
@@ -134,12 +134,12 @@ export class AppService {
   public addToFavorites(menuItem:MenuItem){
     let message:string, status:string;
     if(this.Data.favorites.find(item=>item.id == menuItem.id)){ 
-      message = 'The menu item "' + menuItem.name + '" already added to favorites.'; 
+      message = 'El menú "' + menuItem.name + '" ya está en favoritos.'; 
       status = 'error';    
     } 
     else{
       this.Data.favorites.push(menuItem);
-      message = 'The menu item "' + menuItem.name + '" has been added to favorites.'; 
+      message = 'El menú "' + menuItem.name + '" ha sido agregado a favoritos.'; 
       status = 'success';  
     } 
     this.snackBar.open(message, '×', {

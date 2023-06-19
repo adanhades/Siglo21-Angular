@@ -2,7 +2,7 @@
     <div class="theme-container"> 
         <mat-sidenav-container class="checkout">
             
-            <mat-sidenav-content ngClass.gt-sm="distance">
+            <!-- <mat-sidenav-content ngClass.gt-sm="distance">
                 <mat-card *ngIf="!sidenavOpen" fxLayout="row" fxLayoutAlign="space-between center" class="mb-3"> 
                     <h2 class="secondary-font">Order Summary</h2>
                     <button mat-icon-button (click)="sidenav.toggle()">
@@ -311,19 +311,19 @@
                                             <div class="mat-mdc-cell"><a [routerLink]="['/menu', item.id]" class="menu-item-name">{{item.name}}</a></div>
                                             <div class="mat-mdc-cell price">  
                                                 <span *ngIf="!item.discount" class="primary-color py-3"> 
-                                                    {{item.price | currency : 'USD' : 'symbol' : '1.2-2'}}  
+                                                    {{item.price | currency : 'CLP' : 'symbol' : ''}}  
                                                 </span> 
                                                 <span *ngIf="item.discount" class="primary-color py-3">  
-                                                    {{ (item.price - (item.price * (item.discount / 100))) | currency : 'USD' : 'symbol' : '1.2-2'}}
+                                                    {{ (item.price - (item.price * (item.discount / 100))) | currency : 'CLP' : 'symbol' : ''}}
                                                 </span>  
                                             </div>      
                                             <div class="mat-mdc-cell quantity">{{item.cartCount}}</div>
                                             <div class="mat-mdc-cell total">
                                                 <span *ngIf="!item.discount" class="primary-color py-3"> 
-                                                    {{item.price*item.cartCount | currency : 'USD' : 'symbol' : '1.2-2'}}  
+                                                    {{item.price*item.cartCount | currency : 'CLP' : 'symbol' : ''}}  
                                                 </span> 
                                                 <span *ngIf="item.discount" class="primary-color py-3">   
-                                                    {{ (item.price - (item.price * (item.discount / 100)))*item.cartCount | currency : 'USD' : 'symbol' : '1.2-2'}}
+                                                    {{ (item.price - (item.price * (item.discount / 100)))*item.cartCount | currency : 'CLP' : 'symbol' : ''}}
                                                 </span>  
                                             </div> 
                                         </div> 
@@ -340,9 +340,9 @@
                                             </div>
                                             <div class="mat-mdc-cell total">
                                                 <div fxLayout="column" fxLayoutAlign="center start" class="grand-total">
-                                                    <span>{{ appService.Data.totalPrice | currency : 'USD' : 'symbol' : '1.2-2'}}</span>
+                                                    <span>{{ appService.Data.totalPrice | currency : 'CLP' : 'symbol' : ''}}</span>
                                                     <span class="text-muted">15%</span>
-                                                    <span class="primary-color">{{ (appService.Data.totalPrice - (appService.Data.totalPrice*0.15)) | currency : 'USD' : 'symbol' : '1.2-2'}}</span>
+                                                    <span class="primary-color">{{ (appService.Data.totalPrice - (appService.Data.totalPrice*0.15)) | currency : 'CLP' : 'symbol' : ''}}</span>
                                                 </div>
                                             </div> 
                                         </div>
@@ -382,7 +382,7 @@
                     
                     </mat-accordion>  
                 </form>
-            </mat-sidenav-content>
+            </mat-sidenav-content> -->
 
             <mat-sidenav #sidenav position="end" [opened]="sidenavOpen" [mode]="sidenavOpen ? 'side' : 'over'">
                 <ng-scrollbar pointerEventsMethod="scrollbar"> 
@@ -392,7 +392,7 @@
                         </button> 
                         <div fxLayoutAlign="start center">
                             <mat-icon class="text-muted">receipt_long</mat-icon>
-                            <h2 class="secondary-font mx-2">Order Summary</h2>
+                            <h2 class="secondary-font mx-2">Resumen de la orden</h2>
                         </div>  
                         <div class="divider my-3"></div>
                         <div *ngFor="let menuItem of appService.Data.cartList" fxLayout="row" fxLayoutAlign="space-between start" class="mb-3">
@@ -402,35 +402,35 @@
                             </div>
                             <div fxLayout="column" fxLayoutAlign="end end">
                                 <span *ngIf="!menuItem.discount" class="fw-500"> 
-                                    {{menuItem.price | currency : 'USD' : 'symbol' : '1.2-2'}}  
+                                    {{menuItem.price | currency : 'CLP' : 'symbol' : ''}}  
                                 </span> 
                                 <span *ngIf="menuItem.discount" class="fw-500">  
-                                    {{ (menuItem.price - (menuItem.price * (menuItem.discount / 100))) | currency : 'USD' : 'symbol' : '1.2-2'}}
+                                    {{ (menuItem.price - (menuItem.price * (menuItem.discount / 100))) | currency : 'CLP' : 'symbol' : ''}}
                                 </span> 
-                                <small class="text-muted ws-nowrap fw-500">Qty: {{menuItem.cartCount}}</small>
+                                <small class="text-muted ws-nowrap fw-500">Cant: {{menuItem.cartCount}}</small>
                             </div>  
                         </div>
                         <div *ngIf="appService.Data.cartList.length == 0" fxLayout="column" fxLayoutAlign="center center" class="text-center py-2"> 
                             <svg viewBox="0 0 24 24" class="mat-icon mat-icon-xlg primary-color">
                                 <path d="M19 20C19 21.11 18.11 22 17 22C15.89 22 15 21.1 15 20C15 18.89 15.89 18 17 18C18.11 18 19 18.9 19 20M7 18C5.89 18 5 18.89 5 20C5 21.1 5.89 22 7 22C8.11 22 9 21.11 9 20S8.11 18 7 18M7.2 14.63L7.17 14.75C7.17 14.89 7.28 15 7.42 15H19V17H7C5.89 17 5 16.1 5 15C5 14.65 5.09 14.32 5.24 14.04L6.6 11.59L3 4H1V2H4.27L5.21 4H20C20.55 4 21 4.45 21 5C21 5.17 20.95 5.34 20.88 5.5L17.3 11.97C16.96 12.58 16.3 13 15.55 13H8.1L7.2 14.63M8.5 11H10V9H7.56L8.5 11M11 9V11H14V9H11M14 8V6H11V8H14M17.11 9H15V11H16L17.11 9M18.78 6H15V8H17.67L18.78 6M6.14 6L7.08 8H10V6H6.14Z" />
                             </svg> 
-                            <h3 class="secondary-font mt-3">Your Cart Is Currently Empty!</h3>
-                            <p class="text-muted">Before proceed to checkout you must add some items to your shopping cart.</p>  
-                            <a [routerLink]="['/menu']" mat-raised-button color="primary" class="mt-2 mb-3">Return To Shop</a> 
+                            <h3 class="secondary-font mt-3">Tu carro actualmente está vacío</h3>
+                            <p class="text-muted">Debes agregar preparaciones al carro</p>  
+                            <a [routerLink]="['/menu']" mat-raised-button color="primary" class="mt-2 mb-3">Seguir comprando</a> 
                         </div>
                         <div fxLayout="row" fxLayoutAlign="space-between start" class="divider pt-2">
                             <div fxLayout="column" fxLayoutAlign="start start">
                                 <span>SubTotal:</span>
-                                <span class="text-muted">Discount:</span>
-                                <h3>Grand total:</h3>
+                                <span class="text-muted">Descuento:</span>
+                                <h3>Total:</h3>
                             </div>
                             <div fxLayout="column" fxLayoutAlign="end end"> 
                                 <span>{{appService.Data.totalPrice | currency : 'USD' : 'symbol' : '1.2'}}</span> 
                                 <span class="text-muted">15%</span>
-                                <h3 class="primary-color">{{ (appService.Data.totalPrice - (appService.Data.totalPrice*0.15)) | currency : 'USD' : 'symbol' : '1.2-2'}}</h3> 
+                                <h3 class="primary-color">{{ (appService.Data.totalPrice - (appService.Data.totalPrice*0.15)) | currency : 'CLP' : 'symbol' : ''}}</h3> 
                             </div> 
                         </div> 
-                        <button mat-raised-button color="primary" type="button" class="mt-2 w-100" [disabled]="!appService.Data.cartList.length" (click)="placeOrder()">Place Order Now</button>           
+                        <button mat-raised-button color="primary" type="button" class="mt-2 w-100" [disabled]="!appService.Data.cartList.length" (click)="placeOrder()">Pagar la orden</button>           
                     </mat-card>
                 </ng-scrollbar> 
             </mat-sidenav>

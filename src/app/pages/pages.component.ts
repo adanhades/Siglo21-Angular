@@ -15,6 +15,7 @@ export class PagesComponent implements OnInit {
   public headerTypeOption:string = ''; 
   public headerFixed: boolean = false;
   public showBackToTop: boolean = false;
+
  
   public settings: Settings;
   constructor(public appSettings:AppSettings, 

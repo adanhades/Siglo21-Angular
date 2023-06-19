@@ -3,7 +3,7 @@
         "id": 20,
         "name": "Beef Languet With Potato", 
         "description": "Beef tenderloin, butter, black pepper, tomatoes, potato.",
-        "price": 18.50,
+        "price": 15000,
         "image": {
             "small": "assets/images/foods/meat-courses/1/small.jpg",
             "medium": "assets/images/foods/meat-courses/1/medium.jpg",
@@ -22,7 +22,7 @@
         "id": 26,
         "name": "Chick Saj", 
         "description": "Chick, onion, tomatoes, bell pepper, eggplants, potato, lavash.",
-        "price": 18.50,
+        "price": 15000,
         "image": {
             "small": "assets/images/foods/chicken-courses/3/small.jpg",
             "medium": "assets/images/foods/chicken-courses/3/medium.jpg",
@@ -41,7 +41,7 @@
         "id": 25,
         "name": "Chicken Languet With Potato", 
         "description": "Chicken fillet, potato, tomatoes",
-        "price": 12.50,
+        "price": 10500,
         "image": {
             "small": "assets/images/foods/chicken-courses/2/small.jpg",
             "medium": "assets/images/foods/chicken-courses/2/medium.jpg",
@@ -60,7 +60,7 @@
         "id": 12,
         "name": "Tomatoes Marinated in Vinegar", 
         "description": "Tomatoes, grape vinegar, parsley, pumpkin seeds, olive oil, garlic.",
-        "price": 3.90,
+        "price": 2000,
         "image": {
             "small": "assets/images/foods/appetizers/5/small.jpg",
             "medium": "assets/images/foods/appetizers/5/medium.jpg",
@@ -79,7 +79,7 @@
         "id": 14,
         "name": "Barbecue Salad", 
         "description": "Eggplants, tomatoes, bell pepper, red pepper, corn oil, garlic, fresh greens.",
-        "price": 7.50,
+        "price": 5500,
         "image": {
             "small": "assets/images/foods/salads/1/small.jpg",
             "medium": "assets/images/foods/salads/1/medium.jpg",
@@ -98,7 +98,7 @@
         "id": 18,
         "name": "Noodle Soup With Meatballs", 
         "description": "Homemade noodles, veal, meat broth, onion, carrot, turmeric, mung beans.",
-        "price": 11.50,
+        "price": 8500,
         "image": {
             "small": "assets/images/foods/soups/2/small.jpg",
             "medium": "assets/images/foods/soups/2/medium.jpg",

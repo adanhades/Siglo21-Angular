@@ -67,11 +67,11 @@
 <div class="section default mt-3">
     <div class="px-3">
         <div class="theme-container">
-            <h1 class="section-title">Special menu</h1>
-            <p class="section-desc text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> 
+            <h1 class="section-title">Menú Especial</h1>
+            <p class="section-desc text-muted">Los platos emblemáticos de nuestro restaurant</p> 
             <app-menu-items-carousel [menuItems]="specialMenuItems"></app-menu-items-carousel>
             <div fxLayout="row" fxLayoutAlign="center center">
-                <a mat-raised-button routerLink="/menu" color="primary" class="uppercase">View all menu</a>
+                <a mat-raised-button routerLink="/menu" color="primary" class="uppercase">Ver todos los menús</a>
             </div>  
         </div>
     </div>   
@@ -80,8 +80,8 @@
 <div class="section">
     <div class="px-3">
         <div class="theme-container">
-            <h1 class="section-title mb-3">Today Menu</h1>
-            <p class="section-desc text-muted">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+            <h1 class="section-title mb-3">Menú del Día</h1>
+            <p class="section-desc text-muted">El plato del día que consiste en ensalada o consomé, plato de fondo y postre</p>
             <app-today-menu [menuItem]="todayMenu"></app-today-menu> 
         </div>
     </div>   
@@ -90,31 +90,19 @@
 <div class="section default mt-3">
     <div class="px-3">
         <div class="theme-container">
-            <h1 class="section-title">Our best dishes</h1>
-            <p class="section-desc text-muted">The best dishes of the city for our clients.</p> 
+            <h1 class="section-title">Nuestros mejores platos</h1>
+            <p class="section-desc text-muted">Los mejores platos de la ciudad para nuestros clientes.</p> 
             <app-menu-items-carousel [menuItems]="bestMenuItems"></app-menu-items-carousel>
             <div fxLayout="row" fxLayoutAlign="center center">
-                <a mat-raised-button routerLink="/menu" color="primary" class="uppercase">View all menu</a>
+                <a mat-raised-button routerLink="/menu" color="primary" class="uppercase">Ver todos los menús</a>
             </div>  
         </div>
     </div>   
 </div>  
-<app-our-chefs></app-our-chefs>  
-<app-timeline></app-timeline> 
+<!-- <app-our-chefs></app-our-chefs>   -->
+<app-timeline></app-timeline>    
 
-<div class="section">
-    <div class="px-3">
-        <div class="theme-container">
-            <h1 class="section-title mb-3">Reservation</h1>
-            <p class="section-desc text-muted">We provide free, secure and instantly confirmed online reservation.</p>
-            <mat-card class="p-0" ngClass.lt-md="px-2 pb-2">
-                <app-reservation-form></app-reservation-form>  
-            </mat-card> 
-        </div>
-    </div>   
-</div>   
-
-<app-testimonials></app-testimonials>  
-<app-get-app></app-get-app>
+<!-- <app-testimonials></app-testimonials>   -->
+<!-- <app-get-app></app-get-app> -->
 <app-our-awards></app-our-awards> 
-<app-get-in-touch></app-get-in-touch>
+<!-- <app-get-in-touch></app-get-in-touch> -->

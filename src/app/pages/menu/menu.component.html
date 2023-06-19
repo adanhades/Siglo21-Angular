@@ -2,7 +2,7 @@
                   [bgImageAnimate]="true" 
                   [contentOffsetToTop]="false" 
                   [title]="'Menu'"
-                  [desc]="'“If more of us valued food and cheer and song above hoarded gold, it would be a merrier world.” – J.R.R. Tolkien'">
+                  [desc]="'“Si muchos de nosotros diéramos más valor a la comida, la alegría y las canciones que al oro atesorado, éste sería un mundo más feliz.” – J.R.R. Tolkien'">
 </app-header-image> 
 
 <div class="px-3">  
@@ -29,7 +29,7 @@
                     <div fxFlex="100" fxLayoutAlign="center center" fxShow="false" fxShow.gt-sm class="px-2 mb-3">
                         <mat-button-toggle-group #group="matButtonToggleGroup" appearance="legacy" [value]="selectedCategoryId" class="categories-toogle-group mt-2" (change)="onChangeCategory($event)">
                             <mat-button-toggle [value]="0" class="letter">
-                                All Categories
+                                Todas las categorías
                             </mat-button-toggle>
                             <mat-button-toggle *ngFor="let category of categories" [value]="category.id" class="letter">
                                 {{category.name}}
@@ -74,4 +74,4 @@
 
 
 <app-our-awards></app-our-awards> 
-<app-get-in-touch></app-get-in-touch>
+<!-- <app-get-in-touch></app-get-in-touch> -->

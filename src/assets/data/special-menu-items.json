@@ -1,9 +1,9 @@
 [    
     {
         "id": 11,
-        "name": "Special Eggplants Snack", 
-        "description": "Marinated eggplants, special sauce, greens.",
-        "price": 4.50,
+        "name": "Filetes a la crema y cilantro", 
+        "description": "Filetes de Vacuno, crema de leche, cilantro, pimienta negra, tomates, papas.",
+        "price": 7000,
         "image": {
             "small": "assets/images/foods/appetizers/4/small.jpg",
             "medium": "assets/images/foods/appetizers/4/medium.jpg",
@@ -20,9 +20,9 @@
     },
     {
         "id": 17,
-        "name": "Chick Soup With Rice", 
-        "description": "Chick, round rice, onion, carrot, cherry plums, turmeric.",
-        "price": 8.20,
+        "name": "Sopa de pollo con arroz", 
+        "description": "Pollo, arroz, cebollas, zanahorias, especias de la casa, zapallo.",
+        "price": 8200,
         "image": {
             "small": "assets/images/foods/soups/1/small.jpg",
             "medium": "assets/images/foods/soups/1/medium.jpg",
@@ -39,9 +39,9 @@
     },
     {
         "id": 20,
-        "name": "Beef Languet With Potato", 
-        "description": "Beef tenderloin, butter, black pepper, tomatoes, potato.",
-        "price": 18.50,
+        "name": "Bistec Siglo 21", 
+        "description": "Bistec de vacuno, papas fritas, pimienta negra, tomate, ensalda verde.",
+        "price": 8500,
         "image": {
             "small": "assets/images/foods/meat-courses/1/small.jpg",
             "medium": "assets/images/foods/meat-courses/1/medium.jpg",
@@ -58,9 +58,9 @@
     },
     {
         "id": 25,
-        "name": "Chicken Languet With Potato", 
-        "description": "Chicken fillet, potato, tomatoes",
-        "price": 12.50,
+        "name": "Pollo a la plancha Siglo 21", 
+        "description": "Pollo a plancha, papas fritas, pimienta negra, tomate, ensalda verde.",
+        "price": 7500,
         "image": {
             "small": "assets/images/foods/chicken-courses/2/small.jpg",
             "medium": "assets/images/foods/chicken-courses/2/medium.jpg",
@@ -77,9 +77,9 @@
     },
     {
         "id": 27,
-        "name": "Seasonal Fruits", 
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "price": 9.50,
+        "name": "Estaciones Frutales", 
+        "description": "Frutas de estación surtidas con toques de crema de leche y chocolate.",
+        "price": 4000,
         "image": {
             "small": "assets/images/foods/desserts/1/small.jpg",
             "medium": "assets/images/foods/desserts/1/medium.jpg",

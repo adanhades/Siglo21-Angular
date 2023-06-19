@@ -42,13 +42,17 @@ export class AdminComponent implements OnInit {
     }
     this.usuario = this.autenticar.usuario;
     console.log('this.usuario: ', this.usuario);
-    this.getNombre();
+    // this.getNombre();
   }
 
   getNombre(){
+    if(!this.usuario.nombres || !this.usuario.apellidos){
     const nombre = this.usuario.nombres.split(' ')[0];
     const apellido = this.usuario.apellidos.split(' ')[0];
     this.nombreUsuario =  `${nombre} ${apellido}`;
+    }else{
+      this.nombreUsuario = "";
+    }
   }
 
   ngAfterViewInit(){  

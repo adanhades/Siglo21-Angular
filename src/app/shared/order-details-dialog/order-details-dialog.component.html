@@ -4,7 +4,7 @@
         <app-dialog-header-controls [dialogRef]="dialogRef"></app-dialog-header-controls> 
     </div>   
 </div> 
-<mat-dialog-content>  
+<!-- <mat-dialog-content>  
     <div class="pt-3"> 
 
 
@@ -87,19 +87,19 @@
                         <div class="mat-mdc-cell"><a [routerLink]="['/menu', item.id]" class="menu-item-name">{{item.name}}</a></div>
                         <div class="mat-mdc-cell price">  
                             <span *ngIf="!item.discount" class="primary-color py-3"> 
-                                {{item.price | currency : 'USD' : 'symbol' : '1.2-2'}}  
+                                {{item.price | currency : 'CLP' : 'symbol' : ''}}  
                             </span> 
                             <span *ngIf="item.discount" class="primary-color py-3">  
-                                {{ (item.price - (item.price * (item.discount / 100))) | currency : 'USD' : 'symbol' : '1.2-2'}}
+                                {{ (item.price - (item.price * (item.discount / 100))) | currency : 'CLP' : 'symbol' : ''}}
                             </span>  
                         </div>      
                         <div class="mat-mdc-cell quantity">{{item.cartCount}}</div>
                         <div class="mat-mdc-cell total">
                             <span *ngIf="!item.discount" class="primary-color py-3"> 
-                                {{item.price*item.cartCount | currency : 'USD' : 'symbol' : '1.2-2'}}  
+                                {{item.price*item.cartCount | currency : 'CLP' : 'symbol' : ''}}  
                             </span> 
                             <span *ngIf="item.discount" class="primary-color py-3">   
-                                {{ (item.price - (item.price * (item.discount / 100)))*item.cartCount | currency : 'USD' : 'symbol' : '1.2-2'}}
+                                {{ (item.price - (item.price * (item.discount / 100)))*item.cartCount | currency : 'CLP' : 'symbol' : ''}}
                             </span>  
                         </div> 
                     </div> 
@@ -116,9 +116,9 @@
                         </div>
                         <div class="mat-mdc-cell total">
                             <div fxLayout="column" fxLayoutAlign="center start" class="grand-total">
-                                <span>{{ order.amount | currency : 'USD' : 'symbol' : '1.2-2'}}</span>
+                                <span>{{ order.amount | currency : 'CLP' : 'symbol' : ''}}</span>
                                 <span class="text-muted">15%</span>
-                                <span class="primary-color">{{ (order.amount - (order.amount*0.15)) | currency : 'USD' : 'symbol' : '1.2-2'}}</span>
+                                <span class="primary-color">{{ (order.amount - (order.amount*0.15)) | currency : 'CLP' : 'symbol' : ''}}</span>
                             </div>
                         </div> 
                     </div>
@@ -128,4 +128,4 @@
         </div>   
 
     </div>  
-</mat-dialog-content> 
+</mat-dialog-content>  -->

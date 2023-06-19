@@ -25,13 +25,14 @@ export class UserMenuComponent implements OnInit {
     }
     this.usuario = this.autenticar.usuario;
     console.log('this.usuario: ', this.usuario);
-    this.getNombre();
+    this.nombreUsuario = this.usuario.nombres + ' ' + this.usuario.apellidos;
+    // this.getNombre();
   }
 
-  getNombre(){
-    const nombre = this.usuario.nombres.split(' ')[0];
-    const apellido = this.usuario.apellidos.split(' ')[0];
-    this.nombreUsuario =  `${nombre} ${apellido}`;
-  }
+  // getNombre(){
+  //   const nombre = this.usuario.nombres.split(' ')[0];
+  //   const apellido = this.usuario.apellidos.split(' ')[0];
+  //   this.nombreUsuario =  `${nombre} ${apellido}`;
+  // }
 
 }

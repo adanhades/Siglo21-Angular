@@ -15,11 +15,11 @@
                         <span class="mx-2 text-muted">({{menuItem.ratingsCount}} Customer Reviews)</span>
                     </div> 
                     <h1 *ngIf="!menuItem.discount" class="primary-color py-3"> 
-                        {{menuItem.price | currency : 'USD' : 'symbol' : '1.2-2'}}  
+                        {{menuItem.price | currency : 'CLP' : 'symbol' : ''}}  
                     </h1> 
                     <h1 *ngIf="menuItem.discount" class="py-3">  
-                        <span class="text-muted old-price">{{menuItem.price | currency : 'USD' : 'symbol' : '1.2-2'}}</span> 
-                        <span class="primary-color mx-2">{{ (menuItem.price - (menuItem.price * (menuItem.discount / 100))) | currency : 'USD' : 'symbol' : '1.2-2'}}</span>
+                        <span class="text-muted old-price">{{menuItem.price | currency : 'CLP' : 'symbol' : ''}}</span> 
+                        <span class="primary-color mx-2">{{ (menuItem.price - (menuItem.price * (menuItem.discount / 100))) | currency : 'CLP' : 'symbol' : ''}}</span>
                     </h1>
                     <div fxLayout="row" fxLayoutAlign="start center">
                         <app-quantity-counter [value]="menuItem.cartCount" [step]="1" [min]="1" [max]="1000" (onCounterChange)="counterChange($event)"></app-quantity-counter>
@@ -146,4 +146,4 @@
     </div>   
 </div> 
  
-<app-get-in-touch></app-get-in-touch>
+<!-- <app-get-in-touch></app-get-in-touch> -->

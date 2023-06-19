@@ -6,11 +6,11 @@
     </a>
     <div *ngIf="!onlyImage" fxLayout="row" fxLayoutAlign="space-between center" class="bottom-section">  
         <h2 *ngIf="!menuItem.discount"> 
-            {{menuItem.price | currency : 'USD' : 'symbol' : '1.2-2'}}  
+            {{menuItem.price | currency : 'CLP' : 'symbol' : ''}}  
         </h2> 
         <h2 *ngIf="menuItem.discount">  
-            <span class="old-price">{{menuItem.price | currency : 'USD' : 'symbol' : '1.2-2'}}</span> 
-            <span class="mx-2">{{ (menuItem.price - (menuItem.price * (menuItem.discount / 100))) | currency : 'USD' : 'symbol' : '1.2-2'}}</span>
+            <span class="old-price">{{menuItem.price | currency : 'CLP' : 'symbol' : ''}}</span> 
+            <span class="mx-2">{{ (menuItem.price - (menuItem.price * (menuItem.discount / 100))) | currency : 'CLP' : 'symbol' : ''}}</span>
         </h2>  
         <div>  
             <button mat-icon-button [disabled]="onFavorites()" (click)="addToFavorites()" matTooltip="Add To Favorite">
