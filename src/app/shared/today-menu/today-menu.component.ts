@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar'; 
-import { MenuItem } from 'src/app/app.models';
+// import { MenuItem } from 'src/app/app.models';
 import { AppService } from 'src/app/app.service';
 import { AppSettings, Settings } from 'src/app/app.settings';
+import { MenuS21 } from 'src/app/models/venta-cliente.model';
 
 @Component({
   selector: 'app-today-menu',
@@ -10,7 +11,7 @@ import { AppSettings, Settings } from 'src/app/app.settings';
   styleUrls: ['./today-menu.component.scss']
 })
 export class TodayMenuComponent implements OnInit {
-  @Input() menuItem!: MenuItem; 
+  @Input() menuItem!: MenuS21; 
   public quantityCount:number = 1;
   public settings: Settings;
   constructor(public appService:AppService, public snackBar: MatSnackBar, public appSettings:AppSettings) {
@@ -32,7 +33,7 @@ export class TodayMenuComponent implements OnInit {
     }
     else{
       this.menuItem.cartCount = this.menuItem.availibilityCount;
-      this.snackBar.open('You can not add more items than available. In stock ' + this.menuItem.availibilityCount + ' items and you already added ' + this.menuItem.cartCount + ' item to your cart', '×', { panelClass: 'error', verticalPosition: 'top', duration: 5000 });
+      this.snackBar.open('No puede agregar más elementos de los disponibles. En stock' + this.menuItem.availibilityCount + ' artículos y ya agregaste' + this.menuItem.cartCount + ' Artículo a tu carrito', '×', { panelClass: 'error', verticalPosition: 'top', duration: 5000 });
     }
   }
 

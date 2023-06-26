@@ -28,7 +28,7 @@
             "medium": "assets/images/foods/breakfast/2/medium.jpg",
             "big": "assets/images/foods/breakfast/2/big.jpg"
         },
-        "discount": 10,
+        "discount": 0,
         "ratingsCount": 4,
         "ratingsValue": 320, 
         "availibilityCount": 7,
@@ -123,7 +123,7 @@
             "medium": "assets/images/foods/breakfast/7/medium.jpg",
             "big": "assets/images/foods/breakfast/7/big.jpg"
         },
-        "discount": 10,
+        "discount": 0,
         "ratingsCount": 4,
         "ratingsValue": 380, 
         "availibilityCount": 6,
@@ -199,7 +199,7 @@
             "medium": "assets/images/foods/appetizers/4/medium.jpg",
             "big": "assets/images/foods/appetizers/4/big.jpg"
         },
-        "discount": 10,
+        "discount": 0,
         "ratingsCount": 3,
         "ratingsValue": 280, 
         "availibilityCount": 8,
@@ -313,7 +313,7 @@
             "medium": "assets/images/foods/soups/1/medium.jpg",
             "big": "assets/images/foods/soups/1/big.jpg"
         },
-        "discount": 10,
+        "discount": 0,
         "ratingsCount": 4,
         "ratingsValue": 480, 
         "availibilityCount": 8,
@@ -408,7 +408,7 @@
             "medium": "assets/images/foods/meat-courses/3/medium.jpg",
             "big": "assets/images/foods/meat-courses/3/big.jpg"
         },
-        "discount": 10,
+        "discount": 0,
         "ratingsCount": 4,
         "ratingsValue": 480, 
         "availibilityCount": 5,
@@ -446,7 +446,7 @@
             "medium": "assets/images/foods/chicken-courses/1/medium.jpg",
             "big": "assets/images/foods/chicken-courses/1/big.jpg"
         },
-        "discount": 20,
+        "discount": 0,
         "ratingsCount": 4,
         "ratingsValue": 480, 
         "availibilityCount": 5,
@@ -503,7 +503,7 @@
             "medium": "assets/images/foods/desserts/1/medium.jpg",
             "big": "assets/images/foods/desserts/1/big.jpg"
         },
-        "discount": 10,
+        "discount": 0,
         "ratingsCount": 4,
         "ratingsValue": 480, 
         "availibilityCount": 5,
@@ -598,7 +598,7 @@
             "medium": "assets/images/foods/drinks/2/medium.jpg",
             "big": "assets/images/foods/drinks/2/big.jpg"
         },
-        "discount": 10,
+        "discount": 0,
         "ratingsCount": 4,
         "ratingsValue": 480, 
         "availibilityCount": 5,

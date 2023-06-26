@@ -1,8 +1,9 @@
 import { Component, Input, OnInit, SimpleChange } from '@angular/core';
-import { MenuItem } from 'src/app/app.models';
+// import { MenuItem } from 'src/app/app.models';
 import { AppService } from 'src/app/app.service';
 import { CartOverviewComponent } from '../cart-overview/cart-overview.component';
 import { LOCALE_ID } from '@angular/core';
+import { MenuS21 } from 'src/app/models/venta-cliente.model';
 @Component({
   selector: 'app-menu-item',
   templateUrl: './menu-item.component.html',
@@ -10,7 +11,7 @@ import { LOCALE_ID } from '@angular/core';
   providers: [{provide: LOCALE_ID, useValue: "es-CL" }]
 })
 export class MenuItemComponent implements OnInit {
-  @Input() menuItem!: MenuItem;
+  @Input() menuItem!: MenuS21;
   @Input() lazyLoad: boolean = false;
   @Input() viewType: string = "grid";
   @Input() viewColChanged: any; 

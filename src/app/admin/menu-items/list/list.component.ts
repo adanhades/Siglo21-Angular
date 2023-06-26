@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';  
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table'; 
-import { MenuItem } from 'src/app/app.models';
+// import { MenuItem } from 'src/app/app.models';
 import { AppService } from 'src/app/app.service';
+import { MenuS21 } from 'src/app/models/venta-cliente.model';
 
 @Component({
   selector: 'app-list',
@@ -12,7 +13,7 @@ import { AppService } from 'src/app/app.service';
 })
 export class ListComponent implements OnInit { 
   displayedColumns: string[] = ['id', 'image', 'categoryId', 'name', 'price', 'discount', 'availibilityCount', 'isVegetarian', 'actions'];
-  dataSource!: MatTableDataSource<MenuItem>;
+  dataSource!: MatTableDataSource<MenuS21>;
   @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort!: MatSort;
 
@@ -20,9 +21,8 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategories();
-    this.appService.getMenuItems().subscribe((menuItems:MenuItem[]) => {
-      this.initDataSource(menuItems); 
-    })
+    let menuItems = this.appService.getMenuItems();
+    this.initDataSource(menuItems); 
   }
 
   public initDataSource(data:any){
@@ -40,7 +40,7 @@ export class ListComponent implements OnInit {
   } 
 
 
-  public remove(menuItem:MenuItem) {
+  public remove(menuItem:MenuS21) {
     const index: number = this.dataSource.data.indexOf(menuItem);    
     if (index !== -1) {
       const message = this.appService.getTranslateValue('MESSAGE.SURE_DELETE');

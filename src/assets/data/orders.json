@@ -13,7 +13,7 @@
                     "medium": "assets/images/foods/main/1/1-medium.jpg",
                     "big": "assets/images/foods/main/1/1-medium.jpg"
                 },
-                "discount": 15,
+                "discount": 0,
                 "ratingsCount": 4,
                 "ratingsValue": 350, 
                 "availibilityCount": 5,
@@ -63,7 +63,7 @@
                     "medium": "assets/images/foods/breakfast/2/medium.jpg",
                     "big": "assets/images/foods/breakfast/2/big.jpg"
                 },
-                "discount": 10,
+                "discount": 0,
                 "ratingsCount": 4,
                 "ratingsValue": 320, 
                 "availibilityCount": 7,

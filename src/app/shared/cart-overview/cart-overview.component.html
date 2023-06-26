@@ -16,16 +16,16 @@
         <div class="w-100 divider"></div> 
     </mat-list-item>
     <mat-list-item *ngFor="let menuItem of appService.Data.cartList">
-        <img matListItemAvatar [src]="menuItem.image.medium" alt="image" fxShow="false" fxShow.gt-xs="true" class="m-0">
+        <img matListItemAvatar [src]="menuItem.imagen.medium" alt="image" fxShow="false" fxShow.gt-xs="true" class="m-0">
         <div fxLayout="row" fxLayoutAlign="space-between center" class="py-2">
             <h3 class="secondary-font fw-500 title"><a [routerLink]="['/menu', menuItem.id]" (click)="hideSheet(true)" class="menu-item-name">{{menuItem.name}}</a></h3>  
             <div fxLayout="row" fxLayoutAlign="end center">
                 <span *ngIf="!menuItem.discount" class="primary-color fw-500 mx-3"> 
-                    {{menuItem.price | currency : 'CLP' : 'symbol' : ''}}  
+                    {{menuItem.precio | currency : 'CLP' : 'symbol' : ''}}  
                 </span> 
                 <span *ngIf="menuItem.discount" class="fw-500 mx-3">  
-                    <span class="text-muted old-price">{{menuItem.price | currency : 'CLP' : 'symbol' : ''}}</span> 
-                    <span class="primary-color mx-2">{{ (menuItem.price - (menuItem.price * (menuItem.discount / 100))) | currency : 'CLP' : 'symbol' : ''}}</span>
+                    <span class="text-muted old-price">{{menuItem.precio | currency : 'CLP' : 'symbol' : ''}}</span> 
+                    <span class="primary-color mx-2">{{ (parseInt(menuItem.precio) - (parseInt(menuItem.precio) * (menuItem.discount / 100))) | currency : 'CLP' : 'symbol' : ''}}</span>
                 </span> 
                 <div class="px-2" fxShow="false" fxShow.gt-xs="true">
                     <app-quantity-counter [value]="menuItem.cartCount" [step]="1" [min]="1" [max]="1000" [small]="true" (onCounterChange)="counterChange(menuItem, $event)"></app-quantity-counter>
@@ -39,11 +39,11 @@
 
         <!-- <h3 mat-line class="secondary-font fw-500 title"><a [routerLink]="['/menu', menuItem.id]" (click)="hideSheet(true)">{{menuItem.name}}</a></h3>  
         <span *ngIf="!menuItem.discount" class="primary-color fw-500 mx-3"> 
-            {{menuItem.price | currency : 'CLP' : 'symbol' : ''}}  
+            {{menuItem.precio | currency : 'CLP' : 'symbol' : ''}}  
         </span> 
         <span *ngIf="menuItem.discount" class="fw-500 mx-3">  
-            <span class="text-muted old-price">{{menuItem.price | currency : 'CLP' : 'symbol' : ''}}</span> 
-            <span class="primary-color mx-2">{{ (menuItem.price - (menuItem.price * (menuItem.discount / 100))) | currency : 'CLP' : 'symbol' : ''}}</span>
+            <span class="text-muted old-price">{{menuItem.precio | currency : 'CLP' : 'symbol' : ''}}</span> 
+            <span class="primary-color mx-2">{{ (parseInt(menuItem.precio) - (parseInt(menuItem.precio) * (menuItem.discount / 100))) | currency : 'CLP' : 'symbol' : ''}}</span>
         </span> 
         <div class="px-2" fxShow="false" fxShow.gt-xs="true">
             <app-quantity-counter [value]="menuItem.cartCount" [step]="1" [min]="1" [max]="1000" [small]="true" (onCounterChange)="counterChange(menuItem, $event)"></app-quantity-counter>

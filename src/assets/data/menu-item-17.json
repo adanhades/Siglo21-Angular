@@ -8,7 +8,7 @@
         "medium": "assets/images/foods/soups/1/medium.jpg",
         "big": "assets/images/foods/soups/1/big.jpg"
     },
-    "discount": 10,
+    "discount": 0,
     "ratingsCount": 4,
     "ratingsValue": 480, 
     "availibilityCount": 8,

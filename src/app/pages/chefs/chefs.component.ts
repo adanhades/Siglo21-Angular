@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'src/app/app.models';
+// import { MenuItem } from 'src/app/app.models';
 import { AppService } from 'src/app/app.service';
+import { MenuS21 } from 'src/app/models/venta-cliente.model';
 
 @Component({
   selector: 'app-chefs',
@@ -9,7 +10,7 @@ import { AppService } from 'src/app/app.service';
 })
 export class ChefsComponent implements OnInit {
   public chefs:any;
-  public menuItems: MenuItem[] = [];
+  public menuItems: MenuS21[] = [];
   constructor(public appService:AppService) { }
 
   ngOnInit() {
@@ -18,9 +19,8 @@ export class ChefsComponent implements OnInit {
   }
 
   public getMenuItems(){
-    this.appService.getMenuItems().subscribe(data=>{
-      this.menuItems = this.appService.shuffleArray(data).slice(0, 8); 
-    });
+    let data = this.appService.getMenuItems();
+    this.menuItems = this.appService.shuffleArray(data).slice(0, 8); 
   } 
 
 }

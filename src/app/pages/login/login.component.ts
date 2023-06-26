@@ -6,6 +6,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { AppSettings, Settings } from 'src/app/app.settings';
 import { LoginResponse } from 'src/app/interfaces/auth.interfaces';
 import { AutenticarService } from 'src/app/services/autenticar.service';
+import { MenusService } from 'src/app/services/menus.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
     public appSettings:AppSettings,
     private autenticar: AutenticarService,
     public auth: AuthService,
-    private usuariosService: UsuariosService
+    private usuariosService: UsuariosService,
+    private menuService: MenusService
     ) { 
     this.settings = this.appSettings.settings; 
   }

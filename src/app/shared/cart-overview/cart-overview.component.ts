@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet'; 
-import { MenuItem } from 'src/app/app.models';
+// import { MenuItem } from 'src/app/app.models';
 import { Settings, AppSettings } from 'src/app/app.settings';
 import { AppService } from 'src/app/app.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MenuS21 } from 'src/app/models/venta-cliente.model';
+import { MenusService } from 'src/app/services/menus.service';
 
 @Component({
   selector: 'app-cart-overview',
@@ -11,12 +13,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./cart-overview.component.scss']
 })
 export class CartOverviewComponent implements OnInit {
-  public menuItems: MenuItem[] = [];
+  public menuItems: MenuS21[] = [];
   public settings: Settings;
   constructor(public appService:AppService, 
               public appSettings:AppSettings,
               private bottomSheetRef: MatBottomSheetRef<CartOverviewComponent>,
-              public snackBar: MatSnackBar) {
+              public snackBar: MatSnackBar,
+              public menuService: MenusService) {
     this.settings = this.appSettings.settings;
   }
 
@@ -31,10 +34,12 @@ export class CartOverviewComponent implements OnInit {
   public clearCart(){
     this.appService.Data.cartList.length = 0;
     this.appService.Data.totalPrice = 0; 
+    this.appService.Data.totalCartCount = 0;
+    this.menuService.clearCart();
     this.hideSheet(false)
   }
 
-  public remove(item:MenuItem, event:any) {
+  public remove(item:MenuS21, event:any) {
     const index: number = this.appService.Data.cartList.indexOf(item);
     if (index !== -1) {
       item.cartCount = 0;
@@ -47,14 +52,14 @@ export class CartOverviewComponent implements OnInit {
     event.preventDefault();           
   }  
 
-  public counterChange(menuItem:MenuItem, count:number){   
+  public counterChange(menuItem:MenuS21, count:number){   
     menuItem.cartCount = count;
     if(menuItem.cartCount <= menuItem.availibilityCount){ 
       this.appService.calculateCartTotal();
     }
     else{
       menuItem.cartCount = menuItem.availibilityCount;
-      this.snackBar.open('You can not add more items than available. In stock ' + menuItem.availibilityCount + ' items and you already added ' + menuItem.cartCount + ' item to your cart', '×', { panelClass: 'error', verticalPosition: 'top', duration: 5000 });
+      this.snackBar.open('No puede agregar más elementos de los disponibles. En stock' + menuItem.availibilityCount + ' artículos y ya agregaste' + menuItem.cartCount + ' Artículo a tu carrito', '×', { panelClass: 'error', verticalPosition: 'top', duration: 5000 });
     } 
   }
  

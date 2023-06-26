@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Settings, AppSettings } from 'src/app/app.settings';
 import { AppService } from 'src/app/app.service';  
-import { MenuItem } from 'src/app/app.models';
+// import { MenuItem } from 'src/app/app.models';
 import { AuthService } from '@auth0/auth0-angular';
 import { GoogleUser } from 'src/app/interfaces/auth.interfaces';
 import { AutenticarService } from 'src/app/services/autenticar.service';
+import { Router } from '@angular/router';
+import { MenusService } from 'src/app/services/menus.service';
+import { MenuS21 } from 'src/app/models/venta-cliente.model';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +16,9 @@ import { AutenticarService } from 'src/app/services/autenticar.service';
 })
 export class HomeComponent implements OnInit {  
   public slides = []; 
-  public specialMenuItems:Array<MenuItem> = [];
-  public bestMenuItems:Array<MenuItem> = [];
-  public todayMenu!:MenuItem;
+  public specialMenuItems:Array<MenuS21> = [];
+  public bestMenuItems:Array<MenuS21> = [];
+  public todayMenu!:MenuS21;
   usuarioGoogle: GoogleUser = {};
   spinner = false;
   public settings: Settings;
@@ -23,27 +26,50 @@ export class HomeComponent implements OnInit {
     public appSettings:AppSettings,
     public appService:AppService,
     public auth: AuthService,
-    private auteService: AutenticarService
+    private auteService: AutenticarService,
+    private router:Router, 
+    private menuService: MenusService
     ) {
     this.settings = this.appSettings.settings;  
   }
 
   ngOnInit(): void {
-    this.getUsuario();
     this.getSlides();
     this.getSpecialMenuItems();
     this.getBestMenuItems();
     this.getTodayMenu();
+    this.redirectLogin();
   }
-
+  
   async getUsuario(){
+    if(!this.menuService.ventaCliente){
+      this.menuService.initBuyData();
+      await this.auth.user$.subscribe((data)=>{
+        this.usuarioGoogle = data;
+        this.menuService.ventaCliente.usuario = this.usuarioGoogle;
+        this.menuService.ventaCliente.socialUser = this.auteService.social_usuario;
+        console.log('HOME ventaCliente: ', this.menuService.ventaCliente);
+        this.menuService.saveVentaClienteLocalStorage();
+        this.auteService.getUsuarioGoogle();
+        this.router.navigate(['/client']);
+        this.spinner = false;
+      }, (error)=>{
+        console.log('error: ', error);
+        this.spinner = false;
+        this.router.navigate(['/login'])
+      });
+    }else{
+      
+    }
+  }
+  
+  redirectLogin(){
     this.spinner = true;
-    await this.auth.user$.subscribe((data)=>{
-      console.log('data: ', data);
-      this.usuarioGoogle = data;
-      this.spinner = false;
-      this.auteService.getUsuarioGoogle();
-    });
+    if(!this.auth.isAuthenticated$){
+      this.router.navigate(['/login']);
+    }else{
+      this.getUsuario();
+    }
   }
 
   public getSlides(){

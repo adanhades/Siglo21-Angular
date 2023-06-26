@@ -28,6 +28,9 @@ export const routes: Routes = [
     RouterModule.forChild(routes),
     SharedModule,
     NgxChartsModule
+  ],
+  exports: [
+    InfoCardsComponent
   ]
 })
 export class DashboardModule { }

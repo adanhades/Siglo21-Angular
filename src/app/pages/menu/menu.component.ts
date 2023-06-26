@@ -3,9 +3,11 @@ import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import { MatPaginator } from '@angular/material/paginator';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { filter, map } from 'rxjs/operators';
-import { MenuItem, Pagination } from 'src/app/app.models';
+import {  Pagination } from 'src/app/app.models';
 import { AppService } from 'src/app/app.service';
 import { AppSettings, Settings } from 'src/app/app.settings';
+import { MenuItemImageS21, MenuS21 } from 'src/app/models/venta-cliente.model';
+import { MenusService } from 'src/app/services/menus.service';
 
 @Component({
   selector: 'app-menu',
@@ -17,7 +19,7 @@ export class MenuComponent implements OnInit {
   public sidenavOpen:boolean = false;
   public showSidenavToggle:boolean = false;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  public menuItems: MenuItem[] = [];
+  public menuItems: MenuS21[] = [];
   public categories:any[] = [];
   public viewType: string = 'grid';
   public viewCol: number = 25;
@@ -28,8 +30,14 @@ export class MenuComponent implements OnInit {
   public message:string | null = '';
   public watcher: Subscription;
   public settings: Settings;
+  public listaMenu: string = '';
 
-  constructor(public appSettings:AppSettings, public appService:AppService, public mediaObserver: MediaObserver) {
+  menuItemsS21: MenuS21[] = [];
+
+  constructor(public appSettings:AppSettings, 
+    public appService:AppService, 
+    public mediaObserver: MediaObserver,
+    private menuServices: MenusService) {
     this.settings = this.appSettings.settings; 
     this.watcher = mediaObserver.asObservable()
     .pipe(filter((changes: MediaChange[]) => changes.length > 0), map((changes: MediaChange[]) => changes[0]))
@@ -62,6 +70,45 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     this.getCategories();
     this.getMenuItems();
+    this.getMenus();
+  }
+
+  getMenus(){
+    this.menuServices.getMenus().subscribe((menu: any) => {
+      if(menu.status == 'success'){
+        console.log('Menús: ', menu);
+        this.menuItemsS21 = menu.data;
+        this.menuItemsS21.forEach(m => {
+          m.imagen = JSON.parse(m.imagen.toString().replaceAll('\\',''));
+          if(m.imagen === null){
+            m.imagen = {
+              small: 'assets/images/foods/no-imagen/no-imagen.jpg',
+              medium:'assets/images/foods/no-imagen/no-imagen.jpg',
+              big:'assets/images/foods/no-imagen/no-imagen.jpg',
+            }
+          }
+          switch (m.categoria.toUpperCase()) {
+            case "DESAYUNOS":
+              m.categoryId = 1;
+              break;
+            case "APERITIVOS":
+              m.categoryId = 2;
+              break;
+            case "POSTRES":
+              m.categoryId = 7;
+              break;
+            case "ENSALADAS":
+                m.categoryId = 3;
+              break;
+          }
+          m.availibilityCount = parseInt(m.total_productos);
+        });
+        console.log('Menús: ', this.menuItemsS21);
+        this.menuServices.menus = this.menuItemsS21;
+        this.menuServices.ventaCliente.orden = this.menuItemsS21;
+        this.menuServices.saveVentaClienteLocalStorage();
+      }
+    });
   }
 
   ngOnDestroy(){ 
@@ -86,21 +133,20 @@ export class MenuComponent implements OnInit {
   }
 
   public getMenuItems(){
-    this.appService.getMenuItems().subscribe(data => {
-      // this.menuItems = this.appService.shuffleArray(data);
-      // this.menuItems = data;
-      let result = this.filterData(data); 
-      if(result.data.length == 0){
-        this.menuItems.length = 0;
-        this.pagination = new Pagination(1, this.count, null, 2, 0, 0);  
-        this.message = 'No Results Found'; 
-      } 
-      else{
-        this.menuItems = result.data; 
-        this.pagination = result.pagination;
-        this.message = null;
-      } 
-    })
+    // this.menuItems = this.appService.shuffleArray(data);
+    // this.menuItems = data;
+    let data = this.appService.getMenuItems();
+    let result = this.filterData(data); 
+    if(result.data.length == 0){
+      this.menuItems.length = 0;
+      this.pagination = new Pagination(1, this.count, null, 2, 0, 0);  
+      this.message = 'Ho se encontraron resultados'; 
+    } 
+    else{
+      this.menuItems = result.data; 
+      this.pagination = result.pagination;
+      this.message = null;
+    } 
   }  
 
   public resetPagination(){ 

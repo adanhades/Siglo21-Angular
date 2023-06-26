@@ -6,18 +6,20 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
-import { MenuItem, Order, Category } from 'src/app/app.models'; 
+import {  Order, Category } from 'src/app/app.models'; 
 import { AppSettings } from 'src/app/app.settings'; 
 import { environment } from 'src/environments/environment';   
 import { ConfirmDialogComponent, ConfirmDialogModel } from './shared/confirm-dialog/confirm-dialog.component';
 import { AlertDialogComponent } from './shared/alert-dialog/alert-dialog.component';
 import { map } from 'rxjs/operators';
+import { MenuS21 } from './models/venta-cliente.model';
+import { MenusService } from './services/menus.service';
 
 export class Data {
   constructor(public categories: Category[], 
-              public cartList: MenuItem[],
+              public cartList: MenuS21[],
               public orderList: Order[],
-              public favorites: MenuItem[], 
+              public favorites: MenuS21[], 
               public totalPrice: number,
               public totalCartCount: number
               ) { }
@@ -44,22 +46,34 @@ export class AppService {
               private snackBar: MatSnackBar,
               public dialog: MatDialog,
               public appSettings:AppSettings,
-              public translateService: TranslateService) { }  
+              public translateService: TranslateService,
+              public MenusService: MenusService) {
+                this.chargeCartList();
+               }  
 
-  public getMenuItems(): Observable<MenuItem[]>{
-    return this.http.get<MenuItem[]>(this.url + 'menu-items.json');
+  chargeCartList(){
+    if(this.Data.cartList.length == 0){
+      if(localStorage.getItem('cartList')!=null){
+        this.Data.cartList = JSON.parse(localStorage.getItem('cartList'));
+        this.calculateCartTotal();
+      }
+    }
+  }
+
+  public getMenuItems(): MenuS21[]{
+    return this.MenusService.ventaCliente.orden;
   } 
  
-  public getMenuItemById(id:number): Observable<MenuItem>{
-    return this.http.get<MenuItem>(this.url + 'menu-item-' + id + '.json');
+  public getMenuItemById(id:number): Observable<MenuS21>{
+    return this.http.get<MenuS21>(this.url + 'menu-item-' + id + '.json');
   }
  
-  public getSpecialMenuItems(): Observable<MenuItem[]>{
-    return this.http.get<MenuItem[]>(this.url + 'special-menu-items.json');
+  public getSpecialMenuItems(): Observable<MenuS21[]>{
+    return this.http.get<MenuS21[]>(this.url + 'special-menu-items.json');
   } 
 
-  public getBestMenuItems(): Observable<MenuItem[]>{
-    return this.http.get<MenuItem[]>(this.url + 'best-menu-items.json');
+  public getBestMenuItems(): Observable<MenuS21[]>{
+    return this.http.get<MenuS21[]>(this.url + 'best-menu-items.json');
   } 
 
   public getCategories(): Observable<Category[]>{
@@ -86,16 +100,17 @@ export class AppService {
     return guid;
   }
 
-  public addToCart(menuItem:MenuItem, component:any){   
+  public addToCart(menuItem:MenuS21, component:any){   
     if(!this.Data.cartList.find(item=>item.id == menuItem.id)){
       menuItem.cartCount = (menuItem.cartCount) ? menuItem.cartCount : 1;
       this.Data.cartList.push(menuItem); 
+      localStorage.setItem('cartList', JSON.stringify(this.Data.cartList));
       this.calculateCartTotal(); 
       if(component){
         this.openCart(component);        
       }
       else{ 
-        this.snackBar.open('El menú "' + menuItem.name + '" ha sido agregado al carro.', '×', {
+        this.snackBar.open('El menú "' + menuItem.nombre + '" ha sido agregado al carro.', '×', {
           verticalPosition: 'top',
           duration: 3000,
           direction: (this.appSettings.settings.rtl) ? 'rtl':'ltr',
@@ -120,26 +135,21 @@ export class AppService {
     this.Data.totalCartCount = 0;
     this.Data.cartList.forEach(item=>{
       let price = 0;
-      if(item.discount){
-        price = item.price - (item.price * (item.discount / 100));
-      }
-      else{
-        price = item.price;
-      }
+      price = parseInt(item.precio);
       this.Data.totalPrice = this.Data.totalPrice + (price * item.cartCount); 
       this.Data.totalCartCount = this.Data.totalCartCount + item.cartCount;  
     });
   }
 
-  public addToFavorites(menuItem:MenuItem){
+  public addToFavorites(menuItem:MenuS21){
     let message:string, status:string;
     if(this.Data.favorites.find(item=>item.id == menuItem.id)){ 
-      message = 'El menú "' + menuItem.name + '" ya está en favoritos.'; 
+      message = 'El menú "' + menuItem.nombre + '" ya está en favoritos.'; 
       status = 'error';    
     } 
     else{
       this.Data.favorites.push(menuItem);
-      message = 'El menú "' + menuItem.name + '" ha sido agregado a favoritos.'; 
+      message = 'El menú "' + menuItem.nombre + '" ha sido agregado a favoritos.'; 
       status = 'success';  
     } 
     this.snackBar.open(message, '×', {

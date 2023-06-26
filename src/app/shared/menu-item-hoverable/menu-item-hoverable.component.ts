@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MenuItem } from 'src/app/app.models';
+// import { MenuItem } from 'src/app/app.models';
 import { AppService } from 'src/app/app.service';
 import { CartOverviewComponent } from '../cart-overview/cart-overview.component';
+import { MenuS21 } from 'src/app/models/venta-cliente.model';
 
 @Component({
   selector: 'app-menu-item-hoverable',
@@ -9,7 +10,7 @@ import { CartOverviewComponent } from '../cart-overview/cart-overview.component'
   styleUrls: ['./menu-item-hoverable.component.scss']
 })
 export class MenuItemHoverableComponent implements OnInit {
-  @Input() menuItem!: MenuItem;
+  @Input() menuItem!: MenuS21;
   @Input() onlyImage: boolean = false;
   constructor(public appService:AppService) { }
 

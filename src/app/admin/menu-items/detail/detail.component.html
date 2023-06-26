@@ -4,7 +4,7 @@
             <mat-chip-listbox *ngIf="menuItem.discount">
                 <mat-chip-option color="warn" highlighted selectable="false">{{menuItem.discount}}% de Decuento</mat-chip-option>
             </mat-chip-listbox>
-            <img [src]="menuItem.image.medium" class="w-100">
+            <img [src]="menuItem.imagen.medium" class="w-100">
         </div>
         <div fxFlex="100" fxFlex.gt-sm="50" class="px-3">
             <h1 class="secondary-font">{{menuItem.name}}</h1> 
@@ -13,11 +13,11 @@
                 <span class="mx-2 text-muted">({{menuItem.ratingsCount}} Customer Reviews)</span>
             </div> 
             <h1 *ngIf="!menuItem.discount" class="primary-color py-3"> 
-                {{menuItem.price | currency : 'CLP' : 'symbol' : ''}}  
+                {{menuItem.precio | currency : 'CLP' : 'symbol' : ''}}  
             </h1> 
             <h1 *ngIf="menuItem.discount" class="py-3">  
-                <span class="text-muted old-price">{{menuItem.price | currency : 'CLP' : 'symbol' : ''}}</span> 
-                <span class="primary-color mx-2">{{ (menuItem.price - (menuItem.price * (menuItem.discount / 100))) | currency : 'CLP' : 'symbol' : ''}}</span>
+                <span class="text-muted old-price">{{menuItem.precio | currency : 'CLP' : 'symbol' : ''}}</span> 
+                <span class="primary-color mx-2">{{ (parseInt(menuItem.precio) - (parseInt(menuItem.precio) * (menuItem.discount / 100))) | currency : 'CLP' : 'symbol' : ''}}</span>
             </h1>
             <div class="py-3"> 
                 <p fxLayout="row" fxLayoutAlign="start center" class="mb-1">
@@ -26,18 +26,18 @@
                     <span class="fw-500">{{ ( appService.Data.categories | filterById : menuItem.categoryId )?.name }}</span>
                 </p>
                 <p fxLayout="row" fxLayoutAlign="start center" class="mb-1">
-                    <mat-icon color="primary" class="mat-icon-sm">{{ (menuItem.availibilityCount > 0) ? 'check_circle' : 'unpublished'}}</mat-icon>
+                    <mat-icon color="primary" class="mat-icon-sm">{{ (menuItem.disponibilidad === "disponible") ? 'check_circle' : 'unpublished'}}</mat-icon>
                     <span class="px-1">Disponible:</span> 
-                    <span class="fw-500">{{ (menuItem.availibilityCount > 0) ? 'Available':'Unavailable'}}</span>
+                    <span class="fw-500">{{ (menuItem.disponibilidad === "disponible") ? 'Disponible':'No Disponible'}}</span>
                 </p>
   
             </div>   
             <h3>Ingredientes</h3>
             <p>{{menuItem.description}}</p> 
-            <div fxLayout="row" fxLayoutAlign="start center" class="text-muted divider pt-3">
+            <!-- <div fxLayout="row" fxLayoutAlign="start center" class="text-muted divider pt-3">
                 <span class="fw-500">Share: </span>
                 <app-social-icons fxLayout="row" fxLayoutAlign="start center"></app-social-icons> 
-            </div>  
+            </div>   -->
             <ul class="p-3">
                 <li>Free global shipping on all orders</li>
                 <li>30 days easy returns if you change your mind</li>

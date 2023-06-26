@@ -65,7 +65,7 @@ export class ReservationStatus {
 export class Order {
     constructor(public id: number,
                 public date: string,
-                public items: MenuItem[],
+                public items: MenuS21[],
                 public quantity: number,
                 public amount: number,
                 public status: OrderStatus){}
@@ -77,20 +77,20 @@ export class OrderStatus {
                 public name: string){}
 }
 
-export class MenuItem {
-    constructor(public id: number,
-                public name: string,
-                public description: string,
-                public price: number,
-                public image: MenuItemImage,
-                public discount: number,
-                public ratingsCount: number,
-                public ratingsValue: number,
-                public availibilityCount: number,
-                public cartCount: number,
-                public weight: number,
-                public isVegetarian: boolean,
-                public categoryId: number){}
+export class MenuS21 {
+    constructor(public id?: number,
+                public name?: string,
+                public description?: string,
+                public price?: number,
+                public image?: MenuItemImage,
+                public discount?: number,
+                public ratingsCount?: number,
+                public ratingsValue?: number,
+                public availibilityCount?: number,
+                public cartCount?: number,
+                public weight?: number,
+                public isVegetarian?: boolean,
+                public categoryId?: number){}
 }
 
 export class MenuItemImage {

@@ -1,9 +1,10 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { AppService } from 'src/app/app.service';
-import { MenuItem } from 'src/app/app.models';
+// import { MenuItem } from 'src/app/app.models';
 import { ActivatedRoute } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
+import { MenuS21 } from 'src/app/models/venta-cliente.model';
 
 @Component({
   selector: 'app-add',
@@ -59,10 +60,10 @@ export class AddComponent implements OnInit {
   } 
  
   public getMenuItemById(){
-    this.appService.getMenuItemById(this.id).subscribe((menuItem:MenuItem)=>{ 
+    this.appService.getMenuItemById(this.id).subscribe((menuItem:MenuS21)=>{ 
       this.form.patchValue(menuItem); 
       if (isPlatformBrowser(this.platformId)) {
-        this.appService.convertImgToBase64(menuItem.image.medium, (dataUrl:string) => { 
+        this.appService.convertImgToBase64(menuItem.imagen.medium, (dataUrl:string) => { 
           this.showImage = true;
           this.form.controls.image.patchValue(dataUrl.toString());
         }) 

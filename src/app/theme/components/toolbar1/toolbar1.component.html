@@ -32,6 +32,7 @@
                     matBadgeSize="small" 
                     matBadgeColor="warn">favorite_border</mat-icon>
       </a>  -->
+      <span *ngIf="menuService.ventaCliente?.tieneMesa" class="mat-toolbar-row bg-primary">Mesa <mat-icon>numbers</mat-icon> {{menuService.ventaCliente.mesa}}</span>
       <button (click)="openCart()" mat-icon-button matTooltip="Productos en el Carro">
         <mat-icon [matBadge]="appService.Data.totalCartCount" 
                   [matBadgeHidden]="appService.Data.totalCartCount == 0" 

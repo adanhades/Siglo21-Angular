@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MenuItem } from 'src/app/app.models';
+// import { MenuItem } from 'src/app/app.models';
 import { AppService } from 'src/app/app.service';
+import { MenuS21 } from 'src/app/models/venta-cliente.model';
 
 @Component({
   selector: 'app-chef',
@@ -11,7 +12,7 @@ import { AppService } from 'src/app/app.service';
 export class ChefComponent implements OnInit {
   private sub: any;
   public chef:any;
-  public menuItems: MenuItem[] = [];
+  public menuItems: MenuS21[] = [];
   constructor(private activatedRoute: ActivatedRoute, public appService:AppService) { }
 
   ngOnInit(): void {
@@ -26,9 +27,8 @@ export class ChefComponent implements OnInit {
   }
 
   public getMenuItems(){
-    this.appService.getMenuItems().subscribe(data=>{
-      this.menuItems = this.appService.shuffleArray(data).slice(0, 12); 
-    });
+    let data = this.appService.getMenuItems();
+    this.menuItems = this.appService.shuffleArray(data).slice(0, 12); 
   } 
 
   ngOnDestroy(){

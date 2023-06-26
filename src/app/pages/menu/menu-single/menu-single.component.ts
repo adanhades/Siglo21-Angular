@@ -3,8 +3,9 @@ import { UntypedFormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AppSettings, Settings } from 'src/app/app.settings';
 import { AppService } from 'src/app/app.service';
-import { MenuItem } from 'src/app/app.models';
+// import { MenuItem } from 'src/app/app.models';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MenuS21 } from 'src/app/models/venta-cliente.model';
 
 @Component({
   selector: 'app-menu-single',
@@ -13,10 +14,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class MenuSingleComponent implements OnInit {
   private sub: any;
-  public menuItem!: MenuItem; 
+  public menuItem!: MenuS21; 
   public settings: Settings; 
   public quantityCount:number = 1;
-  public relatedMenuItems:Array<MenuItem> = [];
+  public relatedMenuItems:Array<MenuS21> = [];
 
   constructor(public appSettings:AppSettings, 
               public appService:AppService, 
@@ -38,7 +39,7 @@ export class MenuSingleComponent implements OnInit {
   }  
 
   public getMenuItemById(id:number){
-    const index: number = this.appService.Data.cartList.findIndex(item => item.id == id);
+    const index: number = this.appService.Data.cartList.findIndex(item => item.id == id.toString());
     if(index !== -1){
       this.menuItem = this.appService.Data.cartList[index];
       this.quantityCount = this.menuItem.cartCount;
@@ -63,7 +64,7 @@ export class MenuSingleComponent implements OnInit {
     }
     else{
       this.menuItem.cartCount = this.menuItem.availibilityCount;
-      this.snackBar.open('You can not add more items than available. In stock ' + this.menuItem.availibilityCount + ' items and you already added ' + this.menuItem.cartCount + ' item to your cart', '×', { panelClass: 'error', verticalPosition: 'top', duration: 5000 });
+      this.snackBar.open('No puede agregar más elementos de los disponibles. En stock' + this.menuItem.availibilityCount + ' artículos y ya agregaste' + this.menuItem.cartCount + ' Artículo a tu carrito', '×', { panelClass: 'error', verticalPosition: 'top', duration: 5000 });
     }
   }
 
@@ -73,9 +74,8 @@ export class MenuSingleComponent implements OnInit {
   } 
 
   public getRelatedMenuItems(){ 
-    this.appService.getMenuItems().subscribe(data=>{
-      this.relatedMenuItems = this.appService.shuffleArray(data).slice(0, 8); 
-    });
+    let data = this.appService.getMenuItems();
+    this.relatedMenuItems = this.appService.shuffleArray(data).slice(0, 8); 
   }  
 
 }

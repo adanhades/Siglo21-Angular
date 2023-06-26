@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MenuItem } from 'src/app/app.models';
+// import { MenuItem } from 'src/app/app.models';
 import { AppService } from 'src/app/app.service'; 
+import { MenuS21 } from 'src/app/models/venta-cliente.model';
 
 @Component({
   selector: 'app-detail',
@@ -10,7 +11,7 @@ import { AppService } from 'src/app/app.service';
 })
 export class DetailComponent implements OnInit {
   private sub: any;
-  public menuItem!: MenuItem;
+  public menuItem!: MenuS21;
   constructor(public appService:AppService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {

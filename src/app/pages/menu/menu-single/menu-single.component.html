@@ -6,38 +6,38 @@
                     <mat-chip-listbox *ngIf="menuItem.discount">
                         <mat-chip-option color="warn" highlighted selectable="false">{{menuItem.discount}}% OFF</mat-chip-option>
                     </mat-chip-listbox>
-                    <img [src]="menuItem.image.medium" class="w-100">
+                    <img [src]="menuItem.imagen.medium" class="w-100">
                 </div>
                 <div fxFlex="100" fxFlex.gt-sm="50" class="px-3">
-                    <h1 class="secondary-font">{{menuItem.name}}</h1> 
-                    <div fxLayout="row" fxLayoutAlign="start center">
+                    <h1 class="secondary-font">{{menuItem.nombre}}</h1> 
+                    <!-- <div fxLayout="row" fxLayoutAlign="start center">
                         <app-rating [ratingsCount]="menuItem.ratingsCount" [ratingsValue]="menuItem.ratingsValue"></app-rating> 
                         <span class="mx-2 text-muted">({{menuItem.ratingsCount}} Customer Reviews)</span>
-                    </div> 
+                    </div>  -->
                     <h1 *ngIf="!menuItem.discount" class="primary-color py-3"> 
-                        {{menuItem.price | currency : 'CLP' : 'symbol' : ''}}  
+                        {{menuItem.precio | currency : 'CLP' : '$' : ''}}  
                     </h1> 
                     <h1 *ngIf="menuItem.discount" class="py-3">  
-                        <span class="text-muted old-price">{{menuItem.price | currency : 'CLP' : 'symbol' : ''}}</span> 
-                        <span class="primary-color mx-2">{{ (menuItem.price - (menuItem.price * (menuItem.discount / 100))) | currency : 'CLP' : 'symbol' : ''}}</span>
+                        <span class="text-muted old-price">{{menuItem.precio | currency : 'CLP' : 'symbol' : ''}}</span> 
+                        <span class="primary-color mx-2">{{ (parseInt(menuItem.precio) - (parseInt(menuItem.precio) * (menuItem.discount / 100))) | currency : 'CLP' : 'symbol' : ''}}</span>
                     </h1>
                     <div fxLayout="row" fxLayoutAlign="start center">
                         <app-quantity-counter [value]="menuItem.cartCount" [step]="1" [min]="1" [max]="1000" (onCounterChange)="counterChange($event)"></app-quantity-counter>
                         <button mat-raised-button color="primary" class="uppercase mx-3" (click)="addToCart()">Add To Cart</button> 
-                        <button mat-icon-button (click)="addToFavorites()" class="text-muted" matTooltip="Add To Favorite">
+                        <!-- <button mat-icon-button (click)="addToFavorites()" class="text-muted" matTooltip="Add To Favorite">
                             <mat-icon class="mat-icon-lg">favorite_border</mat-icon>
-                        </button>
+                        </button> -->
                     </div> 
                     <div class="py-3"> 
                         <p fxLayout="row" fxLayoutAlign="start center" class="mb-1">
                             <mat-icon color="primary" class="mat-icon-sm">local_offer</mat-icon>
-                            <span class="px-1">Category:</span> 
+                            <span class="px-1">Categoría:</span> 
                             <span class="fw-500">{{ ( appService.Data.categories | filterById : menuItem.categoryId )?.name }}</span>
                         </p>
                         <p fxLayout="row" fxLayoutAlign="start center" class="mb-1">
-                            <mat-icon color="primary" class="mat-icon-sm">{{ (menuItem.availibilityCount > 0) ? 'check_circle' : 'unpublished'}}</mat-icon>
-                            <span class="px-1">Availibility:</span> 
-                            <span class="fw-500">{{ (menuItem.availibilityCount > 0) ? 'Available':'Unavailable'}}</span>
+                            <mat-icon color="primary" class="mat-icon-sm">{{ (menuItem.disponibilidad === "disponible") ? 'check_circle' : 'unpublished'}}</mat-icon>
+                            <span class="px-1">Disponible:</span> 
+                            <span class="fw-500">{{ (menuItem.disponibilidad === "disponible") ? 'Disponible':'No Disponible'}}</span>
                         </p>
                         <p fxLayout="row" fxLayoutAlign="start center" class="mb-1">
                             <span fxLayout="row" fxLayoutAlign="start center">
@@ -70,12 +70,12 @@
                         <app-social-icons fxLayout="row" fxLayoutAlign="start center"></app-social-icons> 
                     </div>  
                     <ul class="p-3">
-                        <li>Free global shipping on all orders</li>
-                        <li>30 days easy returns if you change your mind</li>
-                        <li>Order before noon for same day dispatch</li>
+                        <li>Envío global gratuito en todos los pedidos</li>
+                        <li>30 días de devoluciones fáciles si cambia de opinión</li>
+                        <li>Pedir antes del mediodía para el envío del mismo día</li>
                     </ul> 
                     <div fxLayout="row" fxLayoutAlign="start center" class="divider pt-3">
-                        <span class="fw-500">Guaranteed Safe Checkout</span>
+                        <span class="fw-500">Correcto seguro garantizado</span>
                         <img src="assets/images/others/payments.png" alt="payments" class="mx-3">
                     </div> 
                 </div>  

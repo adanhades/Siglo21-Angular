@@ -8,7 +8,7 @@
         "medium": "assets/images/foods/meat-courses/3/medium.jpg",
         "big": "assets/images/foods/meat-courses/3/big.jpg"
     },
-    "discount": 10,
+    "discount": 0,
     "ratingsCount": 4,
     "ratingsValue": 480, 
     "availibilityCount": 5,

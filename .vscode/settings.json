@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "162.241.60.11",
+            "port": 3306,
+            "driver": "MySQL",
+            "database": "hadespro_siglo21",
+            "username": "hadespro_admin",
+            "name": "siglo21"
+        }
+    ]
+}

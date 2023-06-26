@@ -1,20 +1,20 @@
 <mat-card class="menu-item p-0" [fxLayout]="(viewType == 'grid') ? 'column' : 'row'" [ngClass]="[viewType + '-item', 'column-'+column]">   
     <div fxFlex="100" [fxShrink]="(viewType == 'grid') ? '3' : '2'" class="thumbnail-section">
-        <mat-chip-listbox *ngIf="menuItem.discount">
+        <!-- <mat-chip-listbox *ngIf="menuItem.discount">
             <mat-chip-option color="warn" highlighted selectable="false">{{menuItem.discount}}% de Descuento</mat-chip-option>
-        </mat-chip-listbox> 
+        </mat-chip-listbox>  -->
         <div *ngIf="lazyLoad">
-            <img [attr.data-src]="menuItem.image.medium" class="w-100 d-block swiper-lazy">
+            <!-- <img [attr.data-src]="menuItem.imagen.medium" class="w-100 d-block swiper-lazy"> -->
             <div class="swiper-lazy-preloader"></div>  
         </div>  
-        <img *ngIf="!lazyLoad" [src]="menuItem.image.medium" class="w-100 d-block">  
+        <img *ngIf="!lazyLoad" [src]="menuItem.imagen.medium" class="w-100 d-block">  
     </div>  
     <div fxFlex="100" class="p-3"> 
         <div fxLayout="column" fxLayoutAlign="start stretch" class="h-100">
             <mat-card-content class="mb-0 p-0">
-                <h1 class="title"><a [routerLink]="['/menu', menuItem.id]">{{menuItem.name}}</a></h1>   
+                <h1 class="title"><a [routerLink]="['/menu', menuItem.id]">{{menuItem.nombre}}</a></h1>   
                 <div class="mt-2"> 
-                    <p>{{menuItem.description}}</p> 
+                    <p>{{menuItem.descripcion}}</p> 
                     <div *ngIf="viewType == 'list'" fxShow="false" fxShow.gt-sm="true">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis magnam illum, suscipit nostrum ea quidem. Architecto quisquam eligendi tempora, obcaecati delectus, odio natus suscipit vel est temporibus error officia esse!</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis magnam illum, suscipit nostrum ea quidem. Architecto quisquam eligendi tempora, obcaecati delectus, odio natus suscipit vel est temporibus error officia esse!</p>
@@ -28,36 +28,36 @@
                         <mat-icon color="primary" class="mat-icon-sm">local_offer</mat-icon>
                         <span class="px-1">Categoría:</span>
                         <span class="dots"></span>
-                        <span class="fw-500">{{ ( appService.Data.categories | filterById : menuItem.categoryId )?.name }}</span>
+                        <span class="fw-500">{{  menuItem.categoria }}</span>
                     </p>
                     <p fxLayout="row" fxLayoutAlign="start center" class="mb-1">
-                        <mat-icon color="primary" class="mat-icon-sm">{{ (menuItem.availibilityCount > 0) ? 'check_circle' : 'unpublished'}}</mat-icon>
+                        <mat-icon color="primary" class="mat-icon-sm">{{ (menuItem.disponibilidad === "disponible") ? 'check_circle' : 'unpublished'}}</mat-icon>
                         <span class="px-1">Disponible:</span>
                         <span class="dots"></span>
-                        <span class="fw-500">{{ (menuItem.availibilityCount > 0) ? 'Available':'Unavailable'}}</span>
+                        <span class="fw-500">{{ (menuItem.disponibilidad === "disponible") ? 'Disponible':'No Disponible'}}</span>
                     </p>
 
                 </div> 
 
-                <div fxLayout="row" [fxLayoutAlign]="(viewType == 'grid') ? 'space-between center' : 'end center'" class="mt-3">
+                <!-- <div fxLayout="row" [fxLayoutAlign]="(viewType == 'grid') ? 'space-between center' : 'end center'" class="mt-3">
                     <span class="text-muted">Valoración<span *ngIf="viewType == 'list'" class="px-2">:</span></span>
                     <app-rating [ratingsCount]="menuItem?.ratingsCount" [ratingsValue]="menuItem?.ratingsValue"></app-rating>
-                </div>  
+                </div>   -->
                 <div fxLayout="row" fxLayoutAlign="space-between center" class="divider mt-1"> 
 
                     <h2  class="primary-color"> 
-                        {{menuItem.price | currency : 'CLP' : 'symbol' : '' }}  
+                        {{menuItem.precio | currency : 'CLP' : '$' : '' }}  
                     </h2> 
                     <!-- <h2 *ngIf="menuItem.discount">  
-                        <span class="text-muted old-price">{{menuItem.price | currency : currency : 'CLP' : 'symbol' : ''}}</span> 
-                        <span class="primary-color mx-2">{{ (menuItem.price - (menuItem.price * (menuItem.discount / 100))) | currency : currency : 'CLP' : 'symbol' : ''}}</span>
+                        <span class="text-muted old-precio">{{menuItem.precio | currency : currency : 'CLP' : 'symbol' : ''}}</span> 
+                        <span class="primary-color mx-2">{{ (parseInt(menuItem.precio) - (parseInt(menuItem.precio) * (menuItem.discount / 100))) | currency : currency : 'CLP' : 'symbol' : ''}}</span>
                     </h2>  -->
 
 
                     <div class="text-muted">  
-                        <button mat-icon-button [disabled]="onFavorites()" (click)="addToFavorites()" matTooltip="Agregar a favoritos">
+                        <!-- <button mat-icon-button [disabled]="onFavorites()" (click)="addToFavorites()" matTooltip="Agregar a favoritos">
                             <mat-icon>favorite_border</mat-icon>
-                        </button>
+                        </button> -->
                         <button mat-icon-button [disabled]="onCart()" (click)="addToCart()" matTooltip="Agregar al carro">
                             <mat-icon>shopping_cart</mat-icon>
                         </button>  

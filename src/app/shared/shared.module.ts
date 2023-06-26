@@ -148,7 +148,7 @@ import { HeaderVideoComponent } from './header-video/header-video.component';
     MatStepperModule,
     NgScrollbarModule,
     PipesModule,
-    DirectivesModule
+    DirectivesModule,
   ],
   exports: [
     RouterModule,

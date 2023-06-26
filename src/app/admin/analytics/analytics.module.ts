@@ -30,6 +30,16 @@ export const routes: Routes = [
     RouterModule.forChild(routes), 
     SharedModule,
     NgxChartsModule
+  ],
+  exports: [
+    RefundsComponent,
+    AnalyticsComponent,
+    MontlySalesComponent,
+    SalesSummaryComponent,
+    DailyViewsStatsComponent,
+    MostViewedProductsComponent,
+    TransactionsComponent
   ]
+
 })
 export class AnalyticsModule { }

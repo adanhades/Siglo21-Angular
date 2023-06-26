@@ -1,0 +1,16 @@
+<div fxLayout="row wrap">
+    <div *ngFor="let mesa of mesas" fxFlex="50" fxFlex.xl="16.6" fxFlex.lg="16.6" fxFlex.md="33.3" fxFlex.sm="33.3" class="p-2">        
+        <mat-card 
+        class=" tile p-2" 
+        [ngClass]="{'gradient-green': mesa.estado === 'disponible','gradient-red': mesa.estado === 'ocupada'}"
+        [disabled]="mesa.estado === 'ocupada' || seleccionada"
+        (click)="seleccionarMesa(mesa)"
+        > 
+        <div *ngIf="loader" class="swiper-lazy-preloader"></div>         
+            <mat-icon *ngIf="mesa.estado === 'disponible'">lock_open</mat-icon> 
+            <mat-icon *ngIf="mesa.estado === 'ocupada'">lock</mat-icon> 
+            <h2>MESA {{mesa.numero}}</h2>         
+            <p>Máximimo de personas {{mesa.capacidad}}</p> 
+        </mat-card>
+    </div>
+</div>

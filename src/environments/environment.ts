@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   url: '',
-  baseUrl: 'http://localhost/back_',
+  baseUrl: 'http://localhost/back',
   // firebase: {
   //   apiKey: "AIzaSyBsGrSXR-zt0WciKrdmGb3qMk_T_mKPVd4",
   //   authDomain: "siglo21-73cf0.firebaseapp.com",

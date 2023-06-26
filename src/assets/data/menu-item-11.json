@@ -8,7 +8,7 @@
         "medium": "assets/images/foods/appetizers/4/medium.jpg",
         "big": "assets/images/foods/appetizers/4/big.jpg"
     },
-    "discount": 10,
+    "discount": 0,
     "ratingsCount": 3,
     "ratingsValue": 280, 
     "availibilityCount": 8,

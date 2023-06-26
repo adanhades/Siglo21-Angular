@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
-import { MenuItem } from 'src/app/app.models';
+import { MenuS21 } from 'src/app/models/venta-cliente.model';
+// import { MenuItem } from 'src/app/app.models';
 
 @Component({
   selector: 'app-menu-items-carousel',
@@ -8,7 +9,7 @@ import { MenuItem } from 'src/app/app.models';
   styleUrls: ['./menu-items-carousel.component.scss']
 })
 export class MenuItemsCarouselComponent implements OnInit {
-  @Input('menuItems') menuItems: Array<MenuItem> = [];
+  @Input('menuItems') menuItems: Array<MenuS21> = [];
   public config: SwiperConfigInterface = {}; 
 
   constructor() { }

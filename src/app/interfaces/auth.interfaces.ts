@@ -9,6 +9,7 @@ export interface LoginResponse {
 export interface ApiResponse {
   ok:      boolean;
   status:  string;
+  http_status_code?  :  number;
   message: string;
   data?:    any[];
 }
@@ -77,4 +78,37 @@ export interface Usuario {
   dvrut?:      string;
   rol?:        string;
 }
+
+export interface VentaCliente {
+  usuario:  GoogleUser;
+  mesa?:     number;
+  orden?:    Pedido[];
+  estado?:   string;
+}
+
+export interface Pedido {
+  id?:             number;
+  cantidad?:       number;
+  precioUnitario?: number;
+  total?:          number;
+}
+
+export interface SocialUser {
+  data_cliente?: DataCliente;
+  token?:        string;
+}
+
+export interface DataCliente {
+  userId:     string;
+  id_cliente: string;
+  nombre:     string;
+  apellido:   string;
+  email:      string;
+  exp:        number;
+  perfil:     Perfil[];
+  perfiles:   Perfil[];
+  profile:    string;
+}
+
+
 

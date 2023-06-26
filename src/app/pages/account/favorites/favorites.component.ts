@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AppService } from 'src/app/app.service';
-import { MenuItem } from 'src/app/app.models';
+// import { MenuItem } from 'src/app/app.models';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { MenuS21 } from 'src/app/models/venta-cliente.model';
 
 @Component({
   selector: 'app-favorites',
@@ -12,7 +13,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class FavoritesComponent implements OnInit {
   displayedColumns: string[] = ['id', 'image', 'name', 'actions' ];
-  dataSource!: MatTableDataSource<MenuItem>;
+  dataSource!: MatTableDataSource<MenuS21>;
   @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort!: MatSort;
   
@@ -24,7 +25,7 @@ export class FavoritesComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  public remove(menuItem:MenuItem) {
+  public remove(menuItem:MenuS21) {
     const index: number = this.dataSource.data.indexOf(menuItem);    
     if (index !== -1) { 
       const message = this.appService.getTranslateValue('MESSAGE.SURE_DELETE');
@@ -32,7 +33,7 @@ export class FavoritesComponent implements OnInit {
 			dialogRef.afterClosed().subscribe(dialogResult => {
 				if(dialogResult){ 
           this.dataSource.data.splice(index,1);
-          this.dataSource = new MatTableDataSource<MenuItem>(this.dataSource.data);
+          this.dataSource = new MatTableDataSource<MenuS21>(this.dataSource.data);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
 				}

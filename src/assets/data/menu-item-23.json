@@ -1,7 +1,7 @@
 {
     "id": 23,
-    "name": "Veal With Mushrooms In Hot Sauce", 
-    "description": "Veal, mushrooms, butter, sweet chili sauce, onion, cilantro.",
+    "name": "Champiñones con carne soja a la mantequilla", 
+    "description": "Carne de vacuno o cerdo, champiñones, mantequilla, aceite de soja, cebolla, cilantro.",
     "price": 14000,
     "image": {
         "small": "assets/images/foods/meat-courses/4/small.jpg",

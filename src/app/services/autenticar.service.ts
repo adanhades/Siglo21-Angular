@@ -1,9 +1,10 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { ApiResponse, Cliente, GoogleUser, LoginResponse, Usuario } from "../interfaces/auth.interfaces";
+import { ApiResponse, Cliente, GoogleUser, LoginResponse, SocialUser, Usuario } from "../interfaces/auth.interfaces";
 import { Observable, catchError, map, of, tap } from "rxjs";
 import { environment } from "src/environments/environment";
 import { AuthService } from "@auth0/auth0-angular";
+import { local } from "d3-selection";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { AuthService } from "@auth0/auth0-angular";
 export class AutenticarService {
     private baseUrl: string = environment.baseUrl;
     private _usuario: Usuario;
+    private _social_usuario:SocialUser = {};
     private _usuarioGoogle: GoogleUser
     private options = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
@@ -65,6 +67,10 @@ export class AutenticarService {
         return { ...this._usuario };
       }
 
+      get social_usuario() {
+        return { ...this._social_usuario };
+      }
+
       get usuarioGoogle() {
         return { ...this._usuarioGoogle };
       }
@@ -73,17 +79,20 @@ export class AutenticarService {
         this.auth.user$.subscribe((data)=>{
           console.log('data: ', data);
           this._usuarioGoogle = data;
-          return this._usuarioGoogle;
+          this.saveGoogleUser(data).subscribe((dataUser)=>{
+            this._social_usuario = dataUser.data;
+            localStorage.setItem('social_usuario', JSON.stringify(this._social_usuario));
+            console.log('Usuario google desde base de datos: ', this._social_usuario);
+          });
+          return this._usuarioGoogle
         });
       }
-    
-      registrarCliente(cliente: Cliente){
-        const body = new HttpParams()
-          .set('nombre', cliente.nombre)
-          .set('apellido', cliente.apellido)
-          .set('email', cliente.email)
-          .set('password', cliente.password)
-          .set('telefono', cliente.telefono)
-        return this.http.post<ApiResponse>(`${this.baseUrl}/ClientesController/agregarCliente`, body, this.options);
+
+      saveGoogleUser(data): Observable<any>{
+        console.log('Usuario Google: ', data);
+        return this.http.post<any>(`${this.baseUrl}/Integracion/google_auth`,JSON.parse(JSON.stringify(data)));
       }
+
+      
+
 }

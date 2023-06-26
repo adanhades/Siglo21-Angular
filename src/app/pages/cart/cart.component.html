@@ -2,8 +2,8 @@
                   [backgroundImage]="'assets/images/others/cart.jpg'" 
                   [bgImageAnimate]="true" 
                   [contentOffsetToTop]="true"  
-                  [title]="'Cart'"
-                  [desc]="'That little basket of joy'"
+                  [title]="'Carro'"
+                  [desc]="'Una canasta de alegrías'"
                   [contentMinHeight]="320">
 </app-header-image> 
 
@@ -35,17 +35,17 @@
                     </div>
                 </div>
                 <div *ngFor="let item of appService.Data.cartList" class="mat-mdc-row">
-                    <div class="mat-mdc-cell image"><img [src]="item.image.small"></div>
-                    <div class="mat-mdc-cell"><a [routerLink]="['/menu', item.id]" class="menu-item-name">{{item.name}}</a></div>
+                    <div class="mat-mdc-cell image"><img [src]="item.imagen.small"></div>
+                    <div class="mat-mdc-cell"><a [routerLink]="['/menu', item.id]" class="menu-item-name">{{item.nombre}}</a></div>
                     <div class="mat-mdc-cell price">  
                         <span class="primary-color py-3"> 
-                            {{item.price | currency : 'CLP' : 'symbol' : ''}}  
+                            {{item.precio | currency : 'CLP' : '$' : ''}}  
                         </span> 
                     </div>      
                     <div class="mat-mdc-cell quantity">
                         <app-quantity-counter [value]="item.cartCount" [step]="1" [min]="1" [max]="1000" (onCounterChange)="onQuantityChange($event, item)"></app-quantity-counter>
                     </div>
-                    <div class="mat-mdc-cell total">{{total[item.id] | currency : 'CLP' : 'symbol' : ''}}</div>
+                    <div class="mat-mdc-cell total">{{total[item.id] | currency : 'CLP' : '$' : ''}}</div>
                     <div class="mat-mdc-cell actions text-center">
                         <div class="p-1">
                             <button mat-mini-fab color="warn" (click)="remove(item)" matTooltip="Limpiar">
@@ -61,15 +61,15 @@
                     <div class="mat-mdc-cell quantity text-right">
                     <div fxLayout="column" fxLayoutAlign="center end" class="grand-total px-2">
                         <span>SubTotal:</span>
-                        <span class="text-muted">Descuento:</span>
+                        <!-- <span class="text-muted">Descuento:</span> -->
                         <span>Total:</span>
                     </div>        
                     </div>
                     <div class="mat-mdc-cell total">
                         <div fxLayout="column" fxLayoutAlign="center start" class="grand-total">
-                            <span>{{ appService.Data.totalPrice | currency : 'CLP' : 'symbol' : ''}}</span>
-                            <span class="text-muted">15%</span>
-                            <span class="primary-color">{{ (appService.Data.totalPrice - (appService.Data.totalPrice*0.15)) | currency : 'CLP' : 'symbol' : ''}}</span>
+                            <span>{{ appService.Data.totalPrice | currency : 'CLP' : '$' : ''}}</span>
+                            <!-- <span class="text-muted">15%</span> -->
+                            <span class="primary-color">{{ appService.Data.totalPrice | currency : 'CLP' : '$' : ''}}</span>
                         </div>
                     </div>
                     <div class="mat-mdc-cell actions">

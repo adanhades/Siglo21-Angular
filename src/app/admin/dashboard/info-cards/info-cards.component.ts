@@ -64,5 +64,8 @@ export class InfoCardsComponent implements OnInit {
     }
     this.previousWidthOfResizedDiv = this.resizedDiv.nativeElement.clientWidth;
   }
+  ngAfterViewInit(){
+    document.getElementById('preloader')?.classList.add('hide');
+}
 
 }
