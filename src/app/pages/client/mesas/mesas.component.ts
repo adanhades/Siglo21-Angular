@@ -40,7 +40,8 @@ export class MesasComponent implements OnInit {
       console.log('Mesa iniciada', res);
       this.getMesas();
       this.menusService.ventaCliente.tieneMesa = true;
-      this.menusService.ventaCliente.mesa = res.data.id_atencion;
+      this.menusService.ventaCliente.mesa = mesa.id;
+      this.menusService.ventaCliente.idAtencion = res.data.id_atencion;
       this.menusService.saveVentaClienteLocalStorage();
       this.loader = false;
       this.router.navigate(['/menu']);

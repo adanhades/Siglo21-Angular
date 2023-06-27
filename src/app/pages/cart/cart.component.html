@@ -73,7 +73,8 @@
                         </div>
                     </div>
                     <div class="mat-mdc-cell actions">
-                        <a [routerLink]="['/checkout']" mat-raised-button color="primary">Confirmar pedido</a>
+                        <!-- <a [routerLink]="['/checkout']" mat-raised-button color="primary">Confirmar pedido</a> -->
+                        <a (click)="confirmaPedido()" mat-raised-button color="primary">Confirmar pedido</a>
                     </div>
                 </div>
             </div> 

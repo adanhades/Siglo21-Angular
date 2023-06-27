@@ -5,7 +5,8 @@ export class VentaCliente {
     mesa: number;
     tieneMesa: boolean;
     orden: MenuS21[];
-    socialUser: SocialUser
+    socialUser: SocialUser;
+    idAtencion: number;
 
     constructor() {
         this.usuario = {};
@@ -13,6 +14,7 @@ export class VentaCliente {
         this.tieneMesa = false;
         this.orden = [];
         this.socialUser = {};
+        this.idAtencion = 0;
     }
 
 }

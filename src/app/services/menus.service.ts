@@ -60,6 +60,19 @@ export class MenusService {
       return this.http.post<Atencion>(`${this.baseUrl}/Compra/crear_atencion_mesa_cliente`,body, this.options);
     }
 
+    crearPedido(orden): Observable<any>{
+      return this.http.post<any>(`${this.baseUrl}/Integracion/crear_pedido_json`,JSON.parse(JSON.stringify(orden)));
+     
+    }
+
+
+    getAtencion(id): Observable<any>{
+      const body = new HttpParams()
+      .set('id_atencion', id.toString());
+      return this.http.post<any>(`${this.baseUrl}/Compra/get_datos_atencion`,body, this.options);
+     
+    }
+
  
 
     

@@ -84,6 +84,8 @@ export interface VentaCliente {
   mesa?:     number;
   orden?:    Pedido[];
   estado?:   string;
+  idAtencion?: number;
+  socialUser?: SocialUser;
 }
 
 export interface Pedido {

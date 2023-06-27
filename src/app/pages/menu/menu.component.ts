@@ -80,11 +80,20 @@ export class MenuComponent implements OnInit {
         this.menuItemsS21 = menu.data;
         this.menuItemsS21.forEach(m => {
           m.imagen = JSON.parse(m.imagen.toString().replaceAll('\\',''));
-          if(m.imagen === null){
-            m.imagen = {
-              small: 'assets/images/foods/no-imagen/no-imagen.jpg',
-              medium:'assets/images/foods/no-imagen/no-imagen.jpg',
-              big:'assets/images/foods/no-imagen/no-imagen.jpg',
+          if(m.imagen === null ){
+            if(m.link_image_auxiliar !== null){
+              m.imagen = {
+                small: m.link_image_auxiliar,
+                medium:m.link_image_auxiliar,
+                big:m.link_image_auxiliar,
+              }
+            }else{
+
+              m.imagen = {
+                small: 'assets/images/foods/no-imagen/no-imagen.jpg',
+                medium:'assets/images/foods/no-imagen/no-imagen.jpg',
+                big:'assets/images/foods/no-imagen/no-imagen.jpg',
+              }
             }
           }
           switch (m.categoria.toUpperCase()) {
@@ -107,6 +116,7 @@ export class MenuComponent implements OnInit {
         this.menuServices.menus = this.menuItemsS21;
         this.menuServices.ventaCliente.orden = this.menuItemsS21;
         this.menuServices.saveVentaClienteLocalStorage();
+        this.getMenuItems();
       }
     });
   }
@@ -123,22 +133,28 @@ export class MenuComponent implements OnInit {
   } 
   public selectCategory(id:number){
     this.selectedCategoryId = id;
-    this.menuItems.length = 0;
+    // this.menuItems.length = 0;
+    if(this.selectedCategoryId == 0){
+      this.menuItems = this.menuServices.menus;
+    }else{
+      this.menuItems =  this.menuServices.menus.filter(item => item.categoryId == this.selectedCategoryId);
+    }
+    
     this.resetPagination();
-    this.getMenuItems();
     this.sidenav.close();
+    this.getMenuItems();
   }
   public onChangeCategory(event:any){ 
     this.selectCategory(event.value);
   }
 
-  public getMenuItems(){
-    // this.menuItems = this.appService.shuffleArray(data);
-    // this.menuItems = data;
-    let data = this.appService.getMenuItems();
+  public async getMenuItems(){
+    let data = await this.appService.getMenuItems();
+    this.menuItems = this.appService.shuffleArray(data);
+    this.menuItems = data;
     let result = this.filterData(data); 
     if(result.data.length == 0){
-      this.menuItems.length = 0;
+      // this.menuItems.length = 0;
       this.pagination = new Pagination(1, this.count, null, 2, 0, 0);  
       this.message = 'Ho se encontraron resultados'; 
     } 

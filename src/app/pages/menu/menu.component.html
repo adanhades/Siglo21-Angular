@@ -31,7 +31,7 @@
                             <mat-button-toggle [value]="0" class="letter">
                                 Todas las categorías
                             </mat-button-toggle>
-                            <mat-button-toggle *ngFor="let category of categories" [value]="category.id" class="letter">
+                            <mat-button-toggle *ngFor="let category of categories" [value]="category.id"  class="letter">
                                 {{category.name}}
                             </mat-button-toggle>
                         </mat-button-toggle-group>

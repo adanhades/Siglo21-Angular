@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 // import { MenuItem } from 'src/app/app.models';
 import { AppService } from 'src/app/app.service';
 import { MenuS21 } from 'src/app/models/venta-cliente.model';
+import { MenusService } from 'src/app/services/menus.service';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +16,9 @@ export class CartComponent implements OnInit {
   public cartItemCountTotal:number = 0; 
   public currentTotalCartCount:number = 0;
   
-  constructor(public appService:AppService, public snackBar: MatSnackBar) { }
+  constructor(public appService:AppService, 
+    public snackBar: MatSnackBar,
+    private menusService: MenusService) { }
 
   ngOnInit(): void {  
     this.updateCartTotal(); 
@@ -30,6 +33,7 @@ export class CartComponent implements OnInit {
 
   public updateCartTotal(){
     this.cartItemCountTotal = 0;
+    console.log('this.appService.Data.cartList: ', this.appService.Data.cartList);
     this.appService.Data.cartList.forEach(item=>{
       let price = 0;
       price = parseInt(item.precio); 
@@ -91,6 +95,37 @@ export class CartComponent implements OnInit {
         }
       }); 
     }     
+  }
+
+  confirmaPedido(){
+    // this.appService.Data.cartList
+    console.log('this.appService.Data.cartList: ', this.appService.Data.cartList);
+
+    let orden = {
+      atencion_id: this.menusService.ventaCliente.idAtencion,
+      pedidos: []
+    }
+
+    this.appService.Data.cartList.forEach(p=>{
+      let pedido = {
+        preparacion_id: p.id,
+        descripcion: "",
+        cantidad: p.cartCount,
+      }
+      orden.pedidos.push(pedido);
+    });
+
+    this.menusService.crearPedido(orden).subscribe((res:any)=>{
+      console.log('res: ', res);
+      this.clear();
+      this.menusService.clearCart();
+      this.appService.Data.cartList.length = 0;
+      this.appService.Data.totalPrice = 0;
+      this.appService.Data.totalCartCount = 0;
+    }, err=>{
+      console.log('err: ', err);
+    });
+
   }
 
   public clear(){ 
