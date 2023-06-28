@@ -14,7 +14,7 @@ export class NotFoundComponent implements OnInit {
   }
 
   public goHome(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(['/menu']);
   }
 
   ngAfterViewInit(){
