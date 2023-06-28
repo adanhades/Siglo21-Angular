@@ -29,11 +29,18 @@ export class MesasComponent implements OnInit {
     this.menusService.getMesas().subscribe((res:any)=>{
         console.log('res: ', res);
         this.mesas = res.data.mesas;
+        document.getElementById('preloader')?.classList.add('hide');
+        
     });
   }
 
   seleccionarMesa(mesa: any){
-    this.loader = true;
+    // if(mesa.estado == 'ocupada'){
+    //   return;
+    // }
+    // this.loader = true;
+    document.getElementById('preloader')?.classList.remove('hide');
+    // document.getElementById('preloader')?.classList.add('show');
     console.log('mesa: ', mesa);
     this.menusService.iniciarAtencionMesa(mesa).subscribe((res:Atencion)=>{
       this.seleccionada = true;
@@ -43,8 +50,11 @@ export class MesasComponent implements OnInit {
       this.menusService.ventaCliente.mesa = mesa.id;
       this.menusService.ventaCliente.idAtencion = res.data.id_atencion;
       this.menusService.saveVentaClienteLocalStorage();
-      this.loader = false;
+      // this.loader = false;
       this.router.navigate(['/menu']);
+    }, (err)=>{
+      console.log('err: ', err);
+      this.loader = false;
     });
   }
 

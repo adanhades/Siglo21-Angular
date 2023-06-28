@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   public bestMenuItems:Array<MenuS21> = [];
   public todayMenu!:MenuS21;
   usuarioGoogle: GoogleUser = {};
-  spinner = false;
+  spinner = true;
   public settings: Settings;
   constructor(
     public appSettings:AppSettings,
@@ -46,11 +46,17 @@ export class HomeComponent implements OnInit {
       this.menuService.initBuyData();
       await this.auth.user$.subscribe((data)=>{
         this.usuarioGoogle = data;
+        this.auteService.saveGoogleUser(data).subscribe((dataUser)=>{
+          this.auteService.setUsuarioGoogle(dataUser.data);
+          localStorage.setItem('social_usuario', JSON.stringify(dataUser.data));
+          console.log('Usuario google desde base de datos: ', dataUser.data);
+          this.menuService.ventaCliente.socialUser = dataUser.data;
+          this.menuService.saveVentaClienteLocalStorage();
+
+        });
         this.menuService.ventaCliente.usuario = this.usuarioGoogle;
-        this.menuService.ventaCliente.socialUser = this.auteService.social_usuario;
         console.log('HOME ventaCliente: ', this.menuService.ventaCliente);
         this.menuService.saveVentaClienteLocalStorage();
-        this.auteService.getUsuarioGoogle();
         this.router.navigate(['/client']);
         this.spinner = false;
       }, (error)=>{

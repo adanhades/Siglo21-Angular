@@ -75,15 +75,14 @@ export class AutenticarService {
         return { ...this._usuarioGoogle };
       }
 
+      setUsuarioGoogle(usuario){
+        this._usuarioGoogle = usuario;
+      }
+
       getUsuarioGoogle(){
         this.auth.user$.subscribe((data)=>{
           console.log('data: ', data);
           this._usuarioGoogle = data;
-          this.saveGoogleUser(data).subscribe((dataUser)=>{
-            this._social_usuario = dataUser.data;
-            localStorage.setItem('social_usuario', JSON.stringify(this._social_usuario));
-            console.log('Usuario google desde base de datos: ', this._social_usuario);
-          });
           return this._usuarioGoogle
         });
       }

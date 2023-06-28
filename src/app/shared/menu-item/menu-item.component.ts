@@ -4,6 +4,7 @@ import { AppService } from 'src/app/app.service';
 import { CartOverviewComponent } from '../cart-overview/cart-overview.component';
 import { LOCALE_ID } from '@angular/core';
 import { MenuS21 } from 'src/app/models/venta-cliente.model';
+import { MenusService } from 'src/app/services/menus.service';
 @Component({
   selector: 'app-menu-item',
   templateUrl: './menu-item.component.html',
@@ -16,7 +17,8 @@ export class MenuItemComponent implements OnInit {
   @Input() viewType: string = "grid";
   @Input() viewColChanged: any; 
   public column:number = 4;
-  constructor(public appService:AppService) { }
+  constructor(public appService:AppService,
+    public menusService: MenusService) { }
 
   ngOnInit(): void {
   }

@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Settings, AppSettings } from '../app.settings';
 import { isPlatformBrowser } from '@angular/common';
 import { AppService } from '../app.service';
+import { MenusService } from '../services/menus.service';
 
 @Component({
   selector: 'app-pages',
@@ -21,7 +22,8 @@ export class PagesComponent implements OnInit {
   constructor(public appSettings:AppSettings, 
               public router:Router, 
               @Inject(PLATFORM_ID) private platformId: Object, 
-              public appService:AppService) {
+              public appService:AppService,
+              public menusService:MenusService) {
     this.settings = this.appSettings.settings;  
   } 
 

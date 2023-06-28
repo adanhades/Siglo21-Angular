@@ -8,23 +8,12 @@
                 [fullscreen]="false">
 </app-header-image> 
 
-<app-header-carousel *ngIf="settings.header == 'carousel'" 
-                    [slides]="slides" 
-                    [contentOffsetToTop]="false"
-                    [fullscreen]="false">
-</app-header-carousel>
 
-<app-header-video *ngIf="settings.header == 'video'" 
-                [backgroundVideo]="'http://themeseason.com/data/videos/restaurant.mp4'" 
-                [contentOffsetToTop]="true"
-                [title]="'Welcome to Restaurant'"
-                [desc]="'Booking a table online is easy'"
-                [isHomePage]="true"
-                [fullscreen]="false">
-</app-header-video>
+
+
   
 <!-- <mat-spinner *ngIf="spinner"></mat-spinner> -->
-<!-- <div *ngIf="spinner" fxLayout="column" fxLayoutAlign="center center" class="user-spinner">   
+<div *ngIf="spinner" fxLayout="column" fxLayoutAlign="center center" class="user-spinner">   
     <div  class="spinner-wrapper" >
         <div  class="spinner-container" >
             <div   class="spinner-outer">
@@ -61,48 +50,6 @@
             </div>
         </div>
       </div>  
-</div> -->
+</div>
 
 
-<div class="section default mt-3">
-    <div class="px-3">
-        <div class="theme-container">
-            <h1 class="section-title">Menú Especial</h1>
-            <p class="section-desc text-muted">Los platos emblemáticos de nuestro restaurant</p> 
-            <app-menu-items-carousel [menuItems]="specialMenuItems"></app-menu-items-carousel>
-            <div fxLayout="row" fxLayoutAlign="center center">
-                <a mat-raised-button routerLink="/menu" color="primary" class="uppercase">Ver todos los menús</a>
-            </div>  
-        </div>
-    </div>   
-</div> 
-
-<div class="section">
-    <div class="px-3">
-        <div class="theme-container">
-            <h1 class="section-title mb-3">Menú del Día</h1>
-            <p class="section-desc text-muted">El plato del día que consiste en ensalada o consomé, plato de fondo y postre</p>
-            <app-today-menu [menuItem]="todayMenu"></app-today-menu> 
-        </div>
-    </div>   
-</div> 
-
-<div class="section default mt-3">
-    <div class="px-3">
-        <div class="theme-container">
-            <h1 class="section-title">Nuestros mejores platos</h1>
-            <p class="section-desc text-muted">Los mejores platos de la ciudad para nuestros clientes.</p> 
-            <app-menu-items-carousel [menuItems]="bestMenuItems"></app-menu-items-carousel>
-            <div fxLayout="row" fxLayoutAlign="center center">
-                <a mat-raised-button routerLink="/menu" color="primary" class="uppercase">Ver todos los menús</a>
-            </div>  
-        </div>
-    </div>   
-</div>  
-<!-- <app-our-chefs></app-our-chefs>   -->
-<app-timeline></app-timeline>    
-
-<!-- <app-testimonials></app-testimonials>   -->
-<!-- <app-get-app></app-get-app> -->
-<app-our-awards></app-our-awards> 
-<!-- <app-get-in-touch></app-get-in-touch> -->

@@ -3,7 +3,7 @@
         <mat-chip-listbox *ngIf="menuItem.disponibilidad !== 'disponible'">
             <mat-chip-option color="warn" highlighted selectable="false">No Disponible</mat-chip-option>
         </mat-chip-listbox> 
-        <div *ngIf="lazyLoad">
+        <div *ngIf="lazyLoad && menusService.ventaCliente?.tieneMesa">
             <img [attr.data-src]="menuItem.imagen.medium" class="w-100 d-block swiper-lazy">
             <div class="swiper-lazy-preloader"></div>  
         </div>  
